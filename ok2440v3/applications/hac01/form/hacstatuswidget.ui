@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>HacStatusWidget</class>
+ <widget class="QWidget" name="HacStatusWidget">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>672</width>
+    <height>69</height>
+   </rect>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">QWidget#HacTaskPanel {
+
+}
+
+QLabel#clockLabel {
+	border-image: url(:/Hac/background-digital-clock.png);
+	min-width: 80px;
+}
+
+QPushButton {
+	background-image: url(:/Hac/square-button.png);
+	background-origin: border;
+	width: 50px;
+	height: 50px;
+}
+QPushButton#homeButton {
+	image: url(:/Hac/home.png);
+}
+QPushButton#backButton {
+	image: url(:/Hac/back.png);
+}
+</string>
+  </property>
+  <layout class="QGridLayout" name="gridLayout">
+   <property name="leftMargin">
+    <number>5</number>
+   </property>
+   <property name="topMargin">
+    <number>4</number>
+   </property>
+   <property name="rightMargin">
+    <number>5</number>
+   </property>
+   <property name="bottomMargin">
+    <number>5</number>
+   </property>
+   <property name="spacing">
+    <number>5</number>
+   </property>
+   <item row="0" column="1">
+    <spacer name="horizontalSpacer">
+     <property name="orientation">
+      <enum>Qt::Horizontal</enum>
+     </property>
+     <property name="sizeHint" stdset="0">
+      <size>
+       <width>270</width>
+       <height>18</height>
+      </size>
+     </property>
+    </spacer>
+   </item>
+   <item row="0" column="2">
+    <widget class="QPushButton" name="backButton"/>
+   </item>
+   <item row="0" column="3">
+    <widget class="QPushButton" name="homeButton"/>
+   </item>
+   <item row="0" column="0">
+    <widget class="HacTimeLabel" name="clockLabel">
+     <property name="sizePolicy">
+      <sizepolicy hsizetype="Expanding" vsizetype="Preferred">
+       <horstretch>0</horstretch>
+       <verstretch>0</verstretch>
+      </sizepolicy>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>20</pointsize>
+      </font>
+     </property>
+     <property name="displayRole">
+      <enum>HacTimeLabel::DateTime</enum>
+     </property>
+     <property name="stringFormat">
+      <string/>
+     </property>
+     <property name="dateFormat">
+      <enum>Qt::LocaleDate</enum>
+     </property>
+     <property name="refreshInterval">
+      <number>1000</number>
+     </property>
+    </widget>
+   </item>
+  </layout>
+ </widget>
+ <customwidgets>
+  <customwidget>
+   <class>HacTimeLabel</class>
+   <extends>QLabel</extends>
+   <header>hactimelabel.h</header>
+  </customwidget>
+ </customwidgets>
+ <resources>
+  <include location="../res/hac.qrc"/>
+ </resources>
+ <connections/>
+</ui>

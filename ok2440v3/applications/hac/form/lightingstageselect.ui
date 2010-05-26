@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>LightingStageSelect</class>
+ <widget class="QWidget" name="LightingStageSelect">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>371</width>
+    <height>121</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Form</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">QWidget#LightingStageSelect {
+	background-color: #0000aa
+}
+
+QFrame {
+	border: 2px solid black;
+	border-radius: 4px;
+	padding: 2px;
+}
+ 
+QPushButton {
+	border: 2px solid #8f8f91;
+	border-radius: 6px;
+	background-image: url(&quot;:/Hac/background-button-big.png&quot;);
+	background-repeat: no-repeat;
+	width: 48px;
+	height: 17px;
+ }
+
+ QPushButton:pressed {
+	border-color: red;
+ }
+
+ QSpinBox {
+	margin: 1px;
+	background: transparent;
+	selection-background-color: transparent;
+	text: black;
+	selection-color: black;
+	font: normal 15px;
+	border: 1px solid black;
+}
+
+QSpinBox::up-button {
+	subcontrol-origin: border;
+    subcontrol-position: left;
+	background: transparent;
+	width: 20px;
+	height: 20px;
+}
+
+QSpinBox:up-arrow {
+     image: url(:/Hac/leftarrow-black-20x20.png);
+     width: 20px;
+     height: 20px;
+}
+QSpinBox::up-arrow:pressed {
+     image: url(:/Hac/leftarrow-red-20x20.png);
+}
+
+
+QSpinBox::down-button {
+    subcontrol-origin: border;
+    subcontrol-position: right;
+	background: transparent;
+	width: 20px;
+	height: 20px;
+}
+
+QSpinBox::down-arrow {
+     image: url(:/Hac/rightarrow-black-20x20.png);
+     width: 20px;
+     height: 20px;
+}
+QSpinBox::down-arrow:pressed {
+     image: url(:/Hac/rightarrow-red-20x20.png);
+}
+
+
+</string>
+  </property>
+  <layout class="QGridLayout" name="gridLayout">
+   <item row="0" column="0">
+    <widget class="QPushButton" name="pushButton">
+     <property name="text">
+      <string>Sleeping</string>
+     </property>
+     <property name="checkable">
+      <bool>true</bool>
+     </property>
+    </widget>
+   </item>
+   <item row="0" column="1">
+    <widget class="QPushButton" name="pushButton_2">
+     <property name="text">
+      <string>Out</string>
+     </property>
+     <property name="checkable">
+      <bool>true</bool>
+     </property>
+    </widget>
+   </item>
+   <item row="0" column="2">
+    <widget class="QPushButton" name="pushButton_3">
+     <property name="text">
+      <string>Reading</string>
+     </property>
+     <property name="checkable">
+      <bool>true</bool>
+     </property>
+    </widget>
+   </item>
+   <item row="1" column="0">
+    <widget class="QPushButton" name="pushButton_4">
+     <property name="text">
+      <string>Watch</string>
+     </property>
+     <property name="checkable">
+      <bool>true</bool>
+     </property>
+    </widget>
+   </item>
+   <item row="1" column="1">
+    <widget class="QPushButton" name="pushButton_5">
+     <property name="text">
+      <string>Rest</string>
+     </property>
+     <property name="checkable">
+      <bool>true</bool>
+     </property>
+    </widget>
+   </item>
+   <item row="1" column="2">
+    <widget class="QPushButton" name="pushButton_6">
+     <property name="text">
+      <string>Normal</string>
+     </property>
+     <property name="checkable">
+      <bool>true</bool>
+     </property>
+    </widget>
+   </item>
+   <item row="2" column="2">
+    <widget class="QPushButton" name="returnButton">
+     <property name="text">
+      <string>Return</string>
+     </property>
+    </widget>
+   </item>
+  </layout>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

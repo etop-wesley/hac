@@ -1,0 +1,382 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>SwitchScheduleItemPick</class>
+ <widget class="QDialog" name="SwitchScheduleItemPick">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>371</width>
+    <height>188</height>
+   </rect>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">QWidget#SwitchScheduleItemPick {
+	background-color: #0000aa
+}
+
+QFrame {
+	border: 2px solid black;
+	border-radius: 4px;
+	padding: 2px;
+}
+ 
+QPushButton {
+	border: 2px solid #8f8f91;
+	border-radius: 6px;
+	background-image: url(&quot;:/Hac/background-button-big.png&quot;);
+	background-repeat: no-repeat;
+	width: 48px;
+	height: 17px;
+ }
+
+ QPushButton:pressed {
+	border-color: red;
+ }
+
+ QSpinBox {
+	margin: 1px;
+	padding: 15px;
+	background: transparent;
+	selection-background-color: transparent;
+	text: black;
+	selection-color: black;
+	font: normal 15px;
+	border: 1px solid black;
+}
+
+QSpinBox::up-button {
+	subcontrol-origin: padding;
+	subcontrol-position: top right;
+	background: transparent;
+	width: 20px;
+	height: 20px;
+}
+
+QSpinBox:up-arrow {
+     image: url(:/Hac/uparrow-black-20x20.png);
+     width: 20px;
+     height: 20px;
+}
+QSpinBox::up-arrow:pressed {
+     image: url(:/Hac/uparrow-red-20x20.png);
+}
+
+
+QSpinBox::down-button {
+	background: transparent;
+	width: 20px;
+	height: 20px;
+}
+
+QSpinBox::down-arrow {
+     image: url(:/Hac/downarrow-black-20x20.png);
+     width: 20px;
+     height: 20px;
+}
+QSpinBox::down-arrow:pressed {
+     image: url(:/Hac/downarrow-red-20x20.png);
+}
+
+
+</string>
+  </property>
+  <layout class="QGridLayout" name="gridLayout_4">
+   <item row="0" column="1">
+    <spacer name="verticalSpacer">
+     <property name="orientation">
+      <enum>Qt::Vertical</enum>
+     </property>
+     <property name="sizeHint" stdset="0">
+      <size>
+       <width>20</width>
+       <height>13</height>
+      </size>
+     </property>
+    </spacer>
+   </item>
+   <item row="1" column="0">
+    <spacer name="horizontalSpacer_5">
+     <property name="orientation">
+      <enum>Qt::Horizontal</enum>
+     </property>
+     <property name="sizeHint" stdset="0">
+      <size>
+       <width>25</width>
+       <height>20</height>
+      </size>
+     </property>
+    </spacer>
+   </item>
+   <item row="1" column="1">
+    <layout class="QGridLayout" name="gridLayout_3">
+     <item row="0" column="0">
+      <layout class="QGridLayout" name="gridLayout_2">
+       <item row="0" column="0">
+        <widget class="QLabel" name="label">
+         <property name="text">
+          <string>From:</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+         </property>
+        </widget>
+       </item>
+       <item row="0" column="1" rowspan="2">
+        <layout class="QGridLayout" name="gridLayout">
+         <item row="0" column="0">
+          <widget class="HacSpinBox" name="startHourSpinBox">
+           <property name="wrapping">
+            <bool>true</bool>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignCenter</set>
+           </property>
+           <property name="maximum">
+            <number>23</number>
+           </property>
+          </widget>
+         </item>
+         <item row="0" column="1">
+          <widget class="HacSpinBox" name="startMinuteSpinBox">
+           <property name="wrapping">
+            <bool>true</bool>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignCenter</set>
+           </property>
+           <property name="maximum">
+            <number>59</number>
+           </property>
+          </widget>
+         </item>
+         <item row="0" column="2">
+          <widget class="HacSpinBox" name="startSecondSpinBox">
+           <property name="wrapping">
+            <bool>true</bool>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignCenter</set>
+           </property>
+           <property name="maximum">
+            <number>59</number>
+           </property>
+          </widget>
+         </item>
+         <item row="0" column="3">
+          <widget class="HacSpinBox" name="spinbox_7">
+           <property name="wrapping">
+            <bool>true</bool>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignCenter</set>
+           </property>
+           <property name="contentType">
+            <enum>HacSpinBox::Content_String</enum>
+           </property>
+           <property name="strings">
+            <stringlist>
+             <string>AM</string>
+             <string>PM</string>
+            </stringlist>
+           </property>
+          </widget>
+         </item>
+         <item row="1" column="0">
+          <widget class="HacSpinBox" name="endHourSpinBox">
+           <property name="wrapping">
+            <bool>true</bool>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignCenter</set>
+           </property>
+           <property name="maximum">
+            <number>23</number>
+           </property>
+          </widget>
+         </item>
+         <item row="1" column="1">
+          <widget class="HacSpinBox" name="endMinuteSpinBox">
+           <property name="wrapping">
+            <bool>true</bool>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignCenter</set>
+           </property>
+           <property name="maximum">
+            <number>59</number>
+           </property>
+          </widget>
+         </item>
+         <item row="1" column="2">
+          <widget class="HacSpinBox" name="endSecondSpinBox">
+           <property name="wrapping">
+            <bool>true</bool>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignCenter</set>
+           </property>
+           <property name="maximum">
+            <number>59</number>
+           </property>
+          </widget>
+         </item>
+         <item row="1" column="3">
+          <widget class="HacSpinBox" name="spinbox_9">
+           <property name="wrapping">
+            <bool>true</bool>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignCenter</set>
+           </property>
+           <property name="contentType">
+            <enum>HacSpinBox::Content_String</enum>
+           </property>
+           <property name="strings">
+            <stringlist>
+             <string>AM</string>
+             <string>PM</string>
+            </stringlist>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </item>
+       <item row="1" column="0">
+        <widget class="QLabel" name="label_2">
+         <property name="text">
+          <string>To:</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </item>
+     <item row="1" column="0">
+      <spacer name="verticalSpacer_3">
+       <property name="orientation">
+        <enum>Qt::Vertical</enum>
+       </property>
+       <property name="sizeHint" stdset="0">
+        <size>
+         <width>20</width>
+         <height>13</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
+     <item row="2" column="0">
+      <layout class="QHBoxLayout" name="horizontalLayout">
+       <item>
+        <widget class="QLabel" name="label_3">
+         <property name="text">
+          <string>Switch Status:</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="HacSpinBox" name="statusSpinBox">
+         <property name="alignment">
+          <set>Qt::AlignCenter</set>
+         </property>
+         <property name="contentType">
+          <enum>HacSpinBox::Content_String</enum>
+         </property>
+         <property name="strings">
+          <stringlist>
+           <string>On</string>
+           <string>Off</string>
+          </stringlist>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </item>
+    </layout>
+   </item>
+   <item row="1" column="2">
+    <spacer name="horizontalSpacer_3">
+     <property name="orientation">
+      <enum>Qt::Horizontal</enum>
+     </property>
+     <property name="sizeHint" stdset="0">
+      <size>
+       <width>6</width>
+       <height>20</height>
+      </size>
+     </property>
+    </spacer>
+   </item>
+   <item row="2" column="1">
+    <spacer name="verticalSpacer_2">
+     <property name="orientation">
+      <enum>Qt::Vertical</enum>
+     </property>
+     <property name="sizeHint" stdset="0">
+      <size>
+       <width>20</width>
+       <height>10</height>
+      </size>
+     </property>
+    </spacer>
+   </item>
+   <item row="3" column="1" colspan="2">
+    <widget class="QDialogButtonBox" name="buttonBox">
+     <property name="orientation">
+      <enum>Qt::Horizontal</enum>
+     </property>
+     <property name="standardButtons">
+      <set>QDialogButtonBox::Cancel|QDialogButtonBox::Ok</set>
+     </property>
+    </widget>
+   </item>
+  </layout>
+ </widget>
+ <customwidgets>
+  <customwidget>
+   <class>HacSpinBox</class>
+   <extends>QSpinBox</extends>
+   <header>hacspinbox.h</header>
+  </customwidget>
+ </customwidgets>
+ <resources/>
+ <connections>
+  <connection>
+   <sender>buttonBox</sender>
+   <signal>accepted()</signal>
+   <receiver>SwitchScheduleItemPick</receiver>
+   <slot>accept()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>248</x>
+     <y>254</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>157</x>
+     <y>274</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>buttonBox</sender>
+   <signal>rejected()</signal>
+   <receiver>SwitchScheduleItemPick</receiver>
+   <slot>reject()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>316</x>
+     <y>260</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>286</x>
+     <y>274</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+</ui>
