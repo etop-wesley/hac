@@ -1,0 +1,82 @@
+#!/bin/sh
+######################################################################################
+# project environment
+######################################################################################
+
+PROJECT=OK2440
+PROJECT_ROOT=WHERE_IS_PROJECT
+BSP_DIR=${PROJECT_ROOT}/bsp
+TOOLCHAIN_DIR=${PROJECT_ROOT}/toolchains
+
+# toolchain
+TOOLCHAIN=${TOOLCHAIN_DIR}
+# toolchain user install
+TOOLCHAIN_USR_INSTALL=${TOOLCHAIN_DIR}/usr
+# cross toolchain
+TOOLCHAIN_CROSS=${TOOLCHAIN_DIR}/cross-3.4.1
+TOOLCHAIN_CROSS_BIN=${TOOLCHAIN_CROSS}/bin
+TOOLCHAIN_CROSS_ARCH=${TOOLCHAIN_CROSS}/arm-linux
+
+# qt toolchain
+TOOLCHAIN_QT=${TOOLCHAIN_DIR}/Qt
+TOOLCHAIN_QT_BIN=${TOOLCHAIN_QT}/bin
+
+PATH=${TOOLCHAIN_CROSS_BIN}:${TOOLCHAIN_QT_BIN}:$PATH
+
+# kernel
+KERNEL=${BSP_DIR}/kernel/linux
+KERNEL_MODULES=${BSP_DIR}/kernel/kos
+
+# rootfs
+ROOTFS=${BSP_DIR}/rootfs
+ROOTFS_BASE=${ROOTFS}/base
+ROOTFS_INSTALL=${ROOTFS}/fs
+
+# extra kernel modules install directory
+KERNEL_MODULES_INSTALL=lib/modules/extra
+
+
+# tools
+SU=sudo
+MAKE=make
+MAKEFILE=Makefile
+QMAKE=qmake
+#DEL_FILE=rm -f
+#CHK_DIR_EXISTS=test -d
+#MKDIR=mkdir -p
+#COPY=cp -f
+#COPY_FILE=$(COPY)
+#COPY_DIR=$(COPY) -r
+#INSTALL_FILE=install -m 644 -p
+#INSTALL_PROGRAM=install -m 755 -p
+#INSTALL_DIR=$(COPY_DIR)
+#DEL_FILE=rm -f
+#SYMLINK=ln -sf
+#DEL_DIR=rmdir
+#MOVE=mv -f
+
+
+
+# cross-compile
+ARCH=arm
+CROSS_COMPILE=arm-linux-
+
+CROSS_ARCH=arm
+CROSS_TARGET=arm
+CROSS_HOST=arm-linux
+
+# cross tools definitions
+CROSS_CC=${CROSS_COMPILE}gcc
+CROSS_CXX=${CROSS_COMPILE}g++
+CROSS_AR=${CROSS_COMPILE}ar
+CROSS_AS=${CROSS_COMPILE}as
+CROSS_LD=${CROSS_COMPILE}ld
+CROSS_NM=${CROSS_COMPILE}nm
+CROSS_STRIP=${CROSS_COMPILE}strip
+CROSS_RANLIB=${CROSS_COMPILE}ranlib
+
+
+export PROJECT PROJECT_ROOT TOOLCHAIN TOOLCHAIN_CROSS_ARCH TOOLCHAIN_USR_INSTALL \
+	ROOTFS ROOTFS_BASE ROOTFS_INSTALL KERNEL KERNEL_MODULES KERNEL_MODULES_INSTALL TOOLCHAIN_QT \
+	MAKE PATH SU QMAKE \
+	CROSS_CC CROSS_CXX CROSS_AR CROSS_AS CROSS_LD CROSS_NM CROSS_STRIP CROSS_RANLIB
