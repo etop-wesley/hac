@@ -1,0 +1,107 @@
+#----------------------------
+# Package Configuration File
+#----------------------------
+#
+
+path = "./etop-hac01.pkg"; # output package path
+
+name = "HAC01"; # package name
+signature = "E-top Controls Technology Co.,Ltd."; # package signature
+description = "E-top Home Automation Controller 01 package"; # package description
+version = "1.0.1"; # package version, "xx.xx.xx.xx"
+
+# images list
+images = (
+          {
+           path = "./u-boot.bin"; # image input path
+           #path = "./u-boot.bin.gz"; # image input path
+           name = "loader"; # image name
+           class = "loader"; # image class, must be one of "loader"/"param"/"splash"/"kernel"/"root"/"data"!
+           version = "1.0.1"; # image version, "xx.xx.xx"
+           type = "bin"; # image type, "bin"/"yaffs2"
+           compress = "none"; # image compress type
+           target = "nor"; # the target for image, "nor"/"nand"
+           offset = 0x00000000; # target offset
+           size = 0x00080000; # max size
+           time = "2010-07-12 18:15:33"; # image create time
+           flags = 0; # image flags, used for application function!	
+          }
+          ,
+          {
+           path = "./param.bin";
+           #path = "./param.bin.gz";
+           name = "param";
+           class = "param";
+           version = "1.0.1";
+           type = "bin";
+           compress = "none";
+           target = "nor";
+           offset = 0x00080000;
+           size = 0x00080000;
+           time = "2010-07-11 12:11:03";
+           flags = 1;
+          }
+          ,
+          {
+           path = "./splash.bmp";
+           #path = "./splash.bmp.gz";
+           name = "splash";
+           class = "splash";
+           version = "1.0.1";
+           type = "bin";
+           compress = "none";
+           target = "nand";
+           offset = 0x00200000;
+           size = 0x00100000;
+           time = "2009-06-11 06:09:44";
+           flags = 0;
+          },
+
+          {
+           path = "./uImage.img";
+           #path = "./uImage.img.gz";
+           name = "kernel";
+           class = "kernel";
+           version = "2.6.28.7";
+           type = "bin";
+           compress = "none";
+           target = "nand";
+           offset = 0x00300000;
+           size = 0x00300000;
+           time = "2009-06-11 06:09:44";
+           flags = 0;
+          }
+          ,
+          {
+           path = "./root.yaffs";
+           #path = "./root.yaffs.gz";
+           name = "root";
+           class = "root";
+           version = "1.0.1";
+           type = "yaffs2";
+           compress = "none";
+           target = "nand";
+           offset = 0x00600000;
+           size = 0x03000000;
+           time = "2010-09-11 15:19:11";
+           flags = 0;
+          }
+/*          ,
+          {
+           path = "./data.yaffs";
+           #path = "./root.yaffs.gz";
+           name = "data";
+           class = "data";
+           version = "1.0.1";
+           type = "yaffs2";
+           compress = "none";
+           target = "nand";
+           offset = 0x03600000;
+           size = 0x00A00000;
+           time = "2010-09-11 15:19:11";
+           flags = 0;
+          }
+*/
+         );
+
+### eof

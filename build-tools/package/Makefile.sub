@@ -1,0 +1,7 @@
+# 
+# Makefile.sub for module description
+#
+
+SRCS +=		crc32.c \
+		package.c
+

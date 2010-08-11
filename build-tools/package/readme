@@ -1,0 +1,20 @@
+This is the tool to generate the project upgrading package.
+
+1. Compile the tool
+   gcc crc32.c package.c -o package
+
+2. Copy tool to bsp/images
+
+3. Create package
+   ./package [pkg_desc] [pkg_name] [images ...]
+
+You can choose to either generate a full package that includes each
+binary or a package just for that part that has been changed.
+
+Example:
+<1> To create a upk by including everything
+   ./package "package by yada_yada on 2010-06-27" upgrade.pkg
+u-boot.bin env.img uImage.img root.yaffs
+
+<2> To create a upk by just including the rootfs
+   ./package "package by blah_blah on 2010-06-27" upgrade.pkg root.yaffs

@@ -1,0 +1,20 @@
+##############################################################################
+#
+# make rules for Makefile
+#
+##############################################################################
+
+## build target config.
+ifeq ($(CONFIG_BUILD_TARGET), ARM)
+DEFINES += -DBUILD_TARGET_ARM=1
+else
+DEFINES += -DBUILD_TARGET_ARM=0
+endif
+
+## global test code switch.
+ifeq ($(CONFIG_TEST_CODE), YES)
+DEFINES += -DINCLUDE_TEST_CODE=1
+else
+DEFINES += -DINCLUDE_TEST_CODE=0
+endif
+

@@ -1,0 +1,43 @@
+####################################################################################
+#
+# config for Makefile
+#
+# Initial creation ---------------- wesley.xie elelonger@gmail.com
+#
+####################################################################################
+# build target
+#       ARM  -- target hardware.
+#       HOST -- Host PC
+CONFIG_BUILD_TARGET := HOST
+
+# build template
+#	APP  -- application
+#	LIB  -- shared libirary
+CONFIG_BUILD_TEMPLATE := APP
+
+# global test code switch
+#       YES  -- include test code
+#       NO   -- exclude all test code
+CONFIG_TEST_CODE:= NO
+
+# setting up tools etc.
+ifeq ($(CONFIG_BUILD_TARGET), ARM)
+     TOOLCHAIN_PREFIX := arm-linux-
+     TOOLCHAIN_PATH   := ${TOOLCHAIN_CROSS_BIN}
+endif
+ifeq ($(CONFIG_BUILD_TARGET), HOST)
+     TOOLCHAIN_PREFIX :=
+     TOOLCHAIN_PATH   :=
+endif
+PATH := ${TOOLCHAIN_PATH}:${PATH}
+
+
+# tools definition
+CC	:= $(TOOLS_PREFIX)gcc
+CXX	:= $(TOOLS_PREFIX)g++
+AR	:= $(TOOLS_PREFIX)ar
+AS	:= $(TOOLS_PREFIX)as
+LD	:= $(TOOLS_PREFIX)ld
+NM	:= $(TOOLS_PREFIX)nm
+STRIP	:= $(TOOLS_PREFIX)strip
+RANLIB	:= $(TOOLS_PREFIX)ranlib
