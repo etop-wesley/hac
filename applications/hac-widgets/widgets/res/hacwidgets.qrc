@@ -1,0 +1,9 @@
+<RCC>
+    <qresource prefix="/HacWidgets">
+         <file>title-level.png</file>
+         <file>go-first.png</file>
+         <file>go-last.png</file>
+         <file>go-previous.png</file>
+         <file>go-next.png</file>
+    </qresource>
+</RCC>

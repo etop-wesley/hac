@@ -1,0 +1,8 @@
+
+THIS_DIR = src/model
+
+INCLUDEPATH += $${THIS_DIR}
+
+SOURCES +=
+
+HEADERS +=
