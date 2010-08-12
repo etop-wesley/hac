@@ -2,6 +2,7 @@
 #include <QDebug>
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
+#include "homepage.h"
 #include "roomchoose.h"
 #include "autocontrolmain.h"
 #include "stagecontrol.h"
@@ -9,117 +10,149 @@
 MainWindow::MainWindow(QWidget *parent, Qt::WindowFlags f)
 :   QWidget(parent, f), ui(new Ui::MainWindow)
 {
-    qDebug() << "MainWindow::MainWindow";
-    ui->setupUi(this);
-    while (ui->stackedWidget->count() > 0)
-        ui->stackedWidget->removeWidget(ui->stackedWidget->widget(0));
+	qDebug() << "MainWindow::MainWindow";
+	/* init UI */
+	ui->setupUi(this);
+	while (ui->stackedWidget->count() > 0)
+		ui->stackedWidget->removeWidget(ui->stackedWidget->widget(0));
+#ifdef HAC_PERFORMANCE_FIXUP
+	ui->stackedWidget->setAttribute(Qt::WA_PaintOnScreen, true);
+	//ui->stackedWidget->setAttribute(Qt::WA_OpaquePaintEvent, true);
+	ui->stackedWidget->setAttribute(Qt::WA_NoSystemBackground, true);
+	ui->stackedWidget->setAutoFillBackground(false);
+#endif // HAC_PERFORMANCE_FIXUP
 
-    readSettings();
+	/* setup from settings */
+	readSettings();
 
-    connect(ui->homeButton, SIGNAL(clicked()),  this, SLOT(OnHomeButtonClicked()));
-    connect(ui->backButton, SIGNAL(clicked()),  this, SLOT(OnBackButtonClicked()));
+	/* connect signals, we are ready to go! */
+	connect(ui->homeButton, SIGNAL(clicked()),  this, SLOT(OnHomeButtonClicked()));
+	connect(ui->backButton, SIGNAL(clicked()),  this, SLOT(OnBackButtonClicked()));
+	connect(ui->stackedWidget, SIGNAL(currentChanged(int)),  this, SLOT(OnStackWidgetCurrentChanged(int)));
+	connect(ui->stackedWidget, SIGNAL(widgetRemoved(int)),  this, SLOT(OnStackWidgetWidgetRemoved(int)));
 }
 
 MainWindow::~MainWindow()
 {
-    qDebug() << "MainWindow::~MainWindow";
-    writeSettings();
-    delete ui;
+	qDebug() << "MainWindow::~MainWindow";
+	writeSettings();
+	delete ui;
 }
 
 void MainWindow::readSettings()
 {
-    qDebug() << "MainWindow::readSettings";
+	qDebug() << "MainWindow::readSettings";
 
-    // setup background
-    QImage image(":/HAC01/desktop-wallpaper.png");
-    if (!image.isNull()) {
-        QPalette palette;
-        palette = this->palette();
-        palette.setBrush(this->backgroundRole(), image); 
-        this->setPalette(palette);
-        this->setAutoFillBackground(true);
-    } else {
-        qDebug() << "can not find desktop background image";
-    }
+	// setup background
+	QImage image(":/HAC01/desktop-wallpaper.png");
+	if (!image.isNull()) {
+		QPalette palette;
+		palette = this->palette();
+		palette.setBrush(this->backgroundRole(), image); 
+		this->setPalette(palette);
+		this->setAutoFillBackground(true);
+	} else {
+		qDebug() << "can not find desktop background image";
+	}
 }
 
 void MainWindow::writeSettings()
 {
-    qDebug() << "MainWindow::writeSettings";
+	qDebug() << "MainWindow::writeSettings";
 
 }
 
 
 void MainWindow::changeEvent(QEvent *e)
 {
-    QWidget::changeEvent(e);
-    switch (e->type()) {
-    case QEvent::LanguageChange:
-        ui->retranslateUi(this);
-        break;
-    default:
-        break;
-    }
+	QWidget::changeEvent(e);
+	switch (e->type()) {
+	case QEvent::LanguageChange:
+		ui->retranslateUi(this);
+		break;
+	default:
+		break;
+	}
 }
 
 void MainWindow::OnHomeButtonClicked()
 {
-    qDebug() << "MainWindow::OnHomeButtonClicked";
-    while (ui->stackedWidget->count() > 0) {
-        QWidget *widget = ui->stackedWidget->currentWidget();
-        ui->stackedWidget->removeWidget(widget);
-        delete widget;
-        widget = NULL;
-    }
-
-    hide();
+	qDebug() << "MainWindow::OnHomeButtonClicked";
+	while (ui->stackedWidget->count() > 1) {
+		QWidget *widget = ui->stackedWidget->currentWidget();
+		ui->stackedWidget->removeWidget(widget);
+		delete widget;
+		widget = NULL;
+	}
 }
 
 void MainWindow::OnBackButtonClicked()
 {
-    qDebug() << "MainWindow::OnBackButtonClicked";
-    if (ui->stackedWidget->count() > 0) {
-        QWidget *widget = ui->stackedWidget->currentWidget();
-        ui->stackedWidget->removeWidget(widget);
-        delete widget;
-        widget = NULL;
-    }
-
-    if (ui->stackedWidget->count() == 0)
-        hide();
+	qDebug() << "MainWindow::OnBackButtonClicked";
+	if (ui->stackedWidget->count() > 1) {
+		QWidget *widget = ui->stackedWidget->currentWidget();
+		ui->stackedWidget->removeWidget(widget);
+		delete widget;
+		widget = NULL;
+	}
 }
 
-QWidget * MainWindow::showWidget(const QString &name)
+void MainWindow::OnStackWidgetCurrentChanged(int index)
 {
-    qDebug() << "HacMainWindow::showWindow" << name;
-    QWidget *widget = NULL;
-    for (int i = 0; i < ui->stackedWidget->count(); i++) {
-        QWidget *w = ui->stackedWidget->widget(i);
-        if (w->objectName() == name) {
-            widget = w;
-            break;
-        }
-    }
+	qDebug() << "MainWindow::OnStackWidgetCurrentChanged" << index;
+	ui->homeButton->setVisible(index != 0);
+	ui->backButton->setVisible(index != 0);
+}
 
-    if (widget == NULL) {
-        if (name == "RoomChoose")
-            widget = new RoomChoose;
-        else if (name == "AutoControlMain")
-            widget = new AutoControlMain;
-        else if (name == "StageControl")
-            widget = new StageControl;
+void MainWindow::OnStackWidgetWidgetRemoved(int index)
+{
+	qDebug() << "MainWindow::OnStackWidgetWidgetRemoved" << index;
 
-        if (widget != NULL) {
-            widget->setAttribute(Qt::WA_DeleteOnClose);
-        }
-    }
+}
 
-    if (widget != NULL) {
-        ui->stackedWidget->addWidget(widget);
-        ui->stackedWidget->setCurrentWidget(widget);
-    }
+/*
+ * show page widget in MainWindow
+ * @param name: the widget name
+ * @return: the pointer to the widget object
+ */
+QWidget * MainWindow::showPage(const QString &name)
+{
+	qDebug() << "MainWindow::showPage" << name;
+	QWidget *widget = NULL;
+	for (int i = 0; i < ui->stackedWidget->count(); i++) {
+		QWidget *w = ui->stackedWidget->widget(i);
+		if (w->objectName() == name) {
+			widget = w;
+			break;
+		}
+	}
 
-    return widget;
+	if (widget == NULL) {
+		if (name == "HomePage")
+			widget = new HomePage;
+		else if (name == "RoomChoose")
+			widget = new RoomChoose;
+		else if (name == "AutoControlMain")
+			widget = new AutoControlMain;
+		else if (name == "StageControl")
+			widget = new StageControl;
+
+		if (widget != NULL) {
+#ifdef HAC_PERFORMANCE_FIXUP
+			widget->setAttribute(Qt::WA_PaintOnScreen, true);
+			//widget->setAttribute(Qt::WA_OpaquePaintEvent, true);
+			widget->setAttribute(Qt::WA_NoSystemBackground, true);
+			widget->setAutoFillBackground(false);
+#endif // HAC_PERFORMANCE_FIXUP
+			widget->setAttribute(Qt::WA_DeleteOnClose);
+		}
+	}
+
+	if (widget != NULL) {
+		ui->stackedWidget->addWidget(widget);
+		ui->stackedWidget->setCurrentWidget(widget);
+	}
+
+	return widget;
 }
 

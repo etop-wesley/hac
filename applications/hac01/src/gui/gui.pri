@@ -5,7 +5,6 @@ INCLUDEPATH += $${THIS_DIR}
 
 SOURCES	+=	$${THIS_DIR}/haccore.cpp \
 		$${THIS_DIR}/hacapplication.cpp \
-		$${THIS_DIR}/mainhomepage.cpp \
 		$${THIS_DIR}/mainwindow.cpp \
 		$${THIS_DIR}/homepage.cpp \
 		$${THIS_DIR}/autocontrolmain.cpp \
@@ -20,7 +19,6 @@ SOURCES	+=	$${THIS_DIR}/haccore.cpp \
 HEADERS	+=	$${THIS_DIR}/gui.h \
 		$${THIS_DIR}/haccore.h \
 		$${THIS_DIR}/hacapplication.h \
-		$${THIS_DIR}/mainhomepage.h \
 		$${THIS_DIR}/mainwindow.h \
 		$${THIS_DIR}/homepage.h \
 		$${THIS_DIR}/autocontrolmain.h \

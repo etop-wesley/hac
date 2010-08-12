@@ -14,15 +14,18 @@ public:
 	MainWindow(QWidget *parent = NULL,  Qt::WindowFlags f = 0);
 	~MainWindow();
 
-	QWidget * showWidget(const QString &name);
+	QWidget * showPage(const QString &name);
 
 protected:
-	void changeEvent(QEvent *e);
+	void changeEvent(QEvent *);
 
 private Q_SLOTS:
     // start the slot name with "On"(not "on_") to avoid auto-connect!
     void OnHomeButtonClicked();
     void OnBackButtonClicked();
+
+    void OnStackWidgetCurrentChanged(int);
+    void OnStackWidgetWidgetRemoved(int);
 
 private:
 	void readSettings();

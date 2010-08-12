@@ -17,6 +17,13 @@ AutoControlMain::AutoControlMain(QWidget *parent, Qt::WindowFlags f)
     ui->setupUi(this);
     while (ui->stackedWidget->count() > 0)
         ui->stackedWidget->removeWidget(ui->stackedWidget->widget(0));
+#ifdef HAC_PERFORMANCE_FIXUP
+	ui->stackedWidget->setAttribute(Qt::WA_PaintOnScreen, true);
+	//ui->stackedWidget->setAttribute(Qt::WA_OpaquePaintEvent, true);
+	ui->stackedWidget->setAttribute(Qt::WA_NoSystemBackground, true);
+	ui->stackedWidget->setAutoFillBackground(false);
+#endif // HAC_PERFORMANCE_FIXUP
+
 /*
     QIcon icon;
     icon.addFile(":/HAC01/button-background-black-normal-150x50.png", QSize(), QIcon::Normal);
@@ -185,6 +192,12 @@ void AutoControlMain::showControl(int index)
             widget = new SwitchesControl;
 
         if (widget != NULL) {
+#ifdef HAC_PERFORMANCE_FIXUP
+			widget->setAttribute(Qt::WA_PaintOnScreen, true);
+            //widget->setAttribute(Qt::WA_OpaquePaintEvent, true);
+			widget->setAttribute(Qt::WA_NoSystemBackground, true);
+			widget->setAutoFillBackground(false);
+#endif // HAC_PERFORMANCE_FIXUP
             widget->setAttribute(Qt::WA_DeleteOnClose);
         }
     }

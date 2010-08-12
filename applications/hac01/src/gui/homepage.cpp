@@ -45,24 +45,11 @@ HomePage::~HomePage()
 void HomePage::readSettings()
 {
     qDebug() << "HomePage::readSettings";
-
-    // setup background
-    QImage image(":/HAC01/desktop-wallpaper.png");
-    if (!image.isNull()) {
-        QPalette pal;
-        pal = this->palette();
-        pal.setBrush(this->backgroundRole(), image); 
-        this->setPalette(pal);
-        this->setAutoFillBackground(true);
-    } else {
-        qDebug() << "can not find desktop background image";
-    }
 }
 
 void HomePage::writeSettings()
 {
     qDebug() << "HomePage::writeSettings";
-
 }
 
 void HomePage::changeEvent(QEvent *e)
@@ -103,6 +90,8 @@ void HomePage::OnMenuListWidgetItemClicked(QListWidgetItem *item)
 
     if (name.isEmpty())
         return;
+
+	HacApp->mainWindow()->showPage(name);
 }
 
 void HomePage::OnCalendarButtonClicked()

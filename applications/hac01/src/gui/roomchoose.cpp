@@ -79,7 +79,7 @@ void RoomChoose::OnListWidgetItemClicked(QListWidgetItem *item)
     if (row != ui->listWidget->currentRow())
         return;
 
-    AutoControlMain *ctrl = qobject_cast<AutoControlMain *>(HacApp->mainWindow()->showWidget("AutoControlMain"));
+    AutoControlMain *ctrl = qobject_cast<AutoControlMain *>(HacApp->mainWindow()->showPage("AutoControlMain"));
     ctrl->setCurrentRoomName(item->text());
     ctrl->setCurrentControlIndex(0);
 }

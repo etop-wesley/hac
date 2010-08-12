@@ -60,8 +60,10 @@ int main(int argc, char *argv[])
     }
 
     MainWindow mw;
+	mw.showPage("HomePage");
     mw.showMaximized();
 
+	app.setMainWindow(&mw);
     app.processEvents();
 
     // close splash screen;

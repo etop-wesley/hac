@@ -47,13 +47,13 @@ usage:
 all:
 	@for lib in $(QT_LIBS); do \
 		cd $$lib && \
-		${QMAKE} -nocache && ${MAKE} all install || exit 1 && \
+		${QMAKE} -nocache && ${MAKE} all install || exit 1; \
 		cd -; \
 	done;
 
 	@for app in $(QT_APPS); do \
 		cd $$app && \
-		${QMAKE} -nocache && ${MAKE} all && cd - || exit 1 && \
+		${QMAKE} -nocache && ${MAKE} all || exit 1; \
 		cd -; \
 	done;
 
