@@ -6,7 +6,7 @@ LIBS +=
 
 SOURCES += $${THIS_DIR}/main.cpp
 
-HEADERS += $${THIS_DIR}/hac-config.h \
+HEADERS += $${THIS_DIR}/config.h \
 
 include (gui/gui.pri)
 include (model/model.pri)

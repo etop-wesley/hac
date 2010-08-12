@@ -9,7 +9,8 @@ SOURCES +=	$${SRC_DIR}/hachelp.cpp \
                 $${SRC_DIR}/hacdatetimelabel.cpp \
                 $${SRC_DIR}/hacled.cpp
 
-HEADERS +=	$${SRC_DIR}/hacwidgetglobal.h \
+HEADERS +=	$${SRC_DIR}/hac-config.h \
+		$${SRC_DIR}/hacwidgetglobal.h \
 		$${SRC_DIR}/hachelp.h \
                 $${SRC_DIR}/haclistwidget.h \
                 $${SRC_DIR}/hacdatetimelabel.h \

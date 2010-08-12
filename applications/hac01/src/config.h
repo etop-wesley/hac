@@ -17,6 +17,6 @@
 // qrc resources name
 #define HAC_QRC "hac01"
 
-#define HAC_PERFORMANCE_FIXUP 1
+//#define HAC_PERFORMANCE_FIXUP 1
 
 #endif // _HACCONFIG_H_

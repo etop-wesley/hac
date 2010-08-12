@@ -16,8 +16,7 @@ SOURCES	+=	$${THIS_DIR}/haccore.cpp \
 		$${THIS_DIR}/lightingscontrol.cpp \
 		$${THIS_DIR}/switchescontrol.cpp
 
-HEADERS	+=	$${THIS_DIR}/gui.h \
-		$${THIS_DIR}/haccore.h \
+HEADERS	+=	$${THIS_DIR}/haccore.h \
 		$${THIS_DIR}/hacapplication.h \
 		$${THIS_DIR}/mainwindow.h \
 		$${THIS_DIR}/homepage.h \
