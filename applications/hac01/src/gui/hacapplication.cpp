@@ -4,9 +4,13 @@
 #include <QSysInfo>
 #include <QLibraryInfo>
 #include <QMessageBox>
-#include "hac-config.h"
-#include "gui.h"
+#include "config.h"
 #include "hacapplication.h"
+
+#include "homepage.h"
+#include "roomchoose.h"
+#include "autocontrolmain.h"
+#include "stagecontrol.h"
 
 HacApplication::HacApplication(int &argc, char **argv)
 : QApplication(argc, argv)
@@ -53,4 +57,51 @@ HacApplication * HacApplication::instance()
 
 	return instance;
 }
+
+/*
+ * show application window
+ * @param name: the window name
+ * @return: the pointer to the widget object
+ */
+QWidget * HacApplication::showWindow(const QString &name)
+{
+	qDebug() << "HacApplication::showWindow" << name;
+	QWidget *widget = NULL;
+
+	foreach (QWidget *w, QApplication::topLevelWidgets()) {
+		if (w->objectName() == name) {
+			widget = widget;
+			break;
+		}
+	}
+
+	if (widget == NULL) {
+		if (name == "HomePage")
+			widget = new HomePage;
+		else if (name == "RoomChoose")
+			widget = new RoomChoose;
+		else if (name == "AutoControlMain")
+			widget = new AutoControlMain;
+		else if (name == "StageControl")
+			widget = new StageControl;
+
+		if (widget != NULL) {
+#ifdef HAC_PERFORMANCE_FIXUP
+			widget->setAttribute(Qt::WA_PaintOnScreen, true);
+			//widget->setAttribute(Qt::WA_OpaquePaintEvent, true);
+			widget->setAttribute(Qt::WA_NoSystemBackground, true);
+			widget->setAutoFillBackground(false);
+#endif // HAC_PERFORMANCE_FIXUP
+			widget->setAttribute(Qt::WA_DeleteOnClose);
+		}
+	}
+
+	if (widget != NULL) {
+		if (widget->isHidden())
+			widget->showMaximized();
+	}
+
+	return widget;
+}
+
 

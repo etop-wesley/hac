@@ -2,10 +2,6 @@
 #include <QDebug>
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
-#include "homepage.h"
-#include "roomchoose.h"
-#include "autocontrolmain.h"
-#include "stagecontrol.h"
 
 MainWindow::MainWindow(QWidget *parent, Qt::WindowFlags f)
 :   QWidget(parent, f), ui(new Ui::MainWindow)
@@ -108,51 +104,5 @@ void MainWindow::OnStackWidgetWidgetRemoved(int index)
 {
 	qDebug() << "MainWindow::OnStackWidgetWidgetRemoved" << index;
 
-}
-
-/*
- * show page widget in MainWindow
- * @param name: the widget name
- * @return: the pointer to the widget object
- */
-QWidget * MainWindow::showPage(const QString &name)
-{
-	qDebug() << "MainWindow::showPage" << name;
-	QWidget *widget = NULL;
-	for (int i = 0; i < ui->stackedWidget->count(); i++) {
-		QWidget *w = ui->stackedWidget->widget(i);
-		if (w->objectName() == name) {
-			widget = w;
-			break;
-		}
-	}
-
-	if (widget == NULL) {
-		if (name == "HomePage")
-			widget = new HomePage;
-		else if (name == "RoomChoose")
-			widget = new RoomChoose;
-		else if (name == "AutoControlMain")
-			widget = new AutoControlMain;
-		else if (name == "StageControl")
-			widget = new StageControl;
-
-		if (widget != NULL) {
-#ifdef HAC_PERFORMANCE_FIXUP
-			widget->setAttribute(Qt::WA_PaintOnScreen, true);
-			//widget->setAttribute(Qt::WA_OpaquePaintEvent, true);
-			widget->setAttribute(Qt::WA_NoSystemBackground, true);
-			widget->setAutoFillBackground(false);
-#endif // HAC_PERFORMANCE_FIXUP
-			widget->setAttribute(Qt::WA_DeleteOnClose);
-		}
-	}
-
-	if (widget != NULL) {
-		ui->stackedWidget->addWidget(widget);
-		ui->stackedWidget->setCurrentWidget(widget);
-	}
-
-	return widget;
 }
 

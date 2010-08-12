@@ -24,6 +24,8 @@ public:
 
     static HacApplication * instance();
 
+	QWidget * showWindow(const QString &name);
+
     MainWindow * mainWindow() { return d_mainWindow; }
     void setMainWindow(MainWindow *window) { d_mainWindow = window; }
 

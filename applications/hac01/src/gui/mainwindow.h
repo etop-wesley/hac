@@ -14,8 +14,6 @@ public:
 	MainWindow(QWidget *parent = NULL,  Qt::WindowFlags f = 0);
 	~MainWindow();
 
-	QWidget * showPage(const QString &name);
-
 protected:
 	void changeEvent(QEvent *);
 

@@ -91,7 +91,7 @@ void HomePage::OnMenuListWidgetItemClicked(QListWidgetItem *item)
     if (name.isEmpty())
         return;
 
-	HacApp->mainWindow()->showPage(name);
+	HacApp->showWindow(name);
 }
 
 void HomePage::OnCalendarButtonClicked()
