@@ -1,5 +1,5 @@
 
-RES_DIR = res
-RESOURCES += $${RES_DIR}/hacwidgets.qrc
+THIS_DIR = res
+RESOURCES += $${THIS_DIR}/hacwidgets.qrc
 
 

@@ -1,7 +1,7 @@
 #ifndef _HACLISTWIDGET_H_
 #define _HACLISTWIDGET_H_
 
-#include "hacwidgetglobal.h"
+#include "hacwidgetsglobal.h"
 #include <QtGui/QListWidget>
 
 class HacListWidgetPrivate;

@@ -5,7 +5,7 @@
  * belowed from QwwLed of wwWidget project. 
  */
 
-#include "hacwidgetglobal.h"
+#include "hacwidgetsglobal.h"
 #include <QtGui/QWidget>
 
 class HacLedPrivate;

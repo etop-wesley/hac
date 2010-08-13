@@ -7,7 +7,8 @@
 
 /* Config File Path */
 #define CONFIG_PATH "/data"
-#define POINTERCAL_FILE "/usr/etc/pointercal"
+#define CONFIG_FILE CONFIG_PATH"/hac"
+#define POINTERCAL_FILE "/etc/pointercal"
 
 /* GUI Define */
 #define SCREEN_WIDTH 800

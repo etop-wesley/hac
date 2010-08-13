@@ -1,7 +1,7 @@
 #ifndef _HACDATETIMELABEL_H_
 #define _HACDATETIMELABEL_H_
 
-#include "hacwidgetglobal.h"
+#include "hacwidgetsglobal.h"
 #include <QLabel>
 
 class HacDateTimeLabelPrivate;
