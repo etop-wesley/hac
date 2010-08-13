@@ -36,3 +36,6 @@ rootfs.files = $$DESTDIR/*
 unix:rootfs.extra = cp -afv  $$rootfs.files $$rootfs.path
 
 INSTALLS += toolchain_include toolchain_lib rootfs
+
+# clean, "-r" tell qmake to remove directory
+QMAKE_DISTCLEAN += -r _*

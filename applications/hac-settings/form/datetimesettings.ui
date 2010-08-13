@@ -10,6 +10,73 @@
     <height>427</height>
    </rect>
   </property>
+  <property name="palette">
+   <palette>
+    <active>
+     <colorrole role="Base">
+      <brush brushstyle="SolidPattern">
+       <color alpha="255">
+        <red>255</red>
+        <green>255</green>
+        <blue>255</blue>
+       </color>
+      </brush>
+     </colorrole>
+     <colorrole role="Window">
+      <brush brushstyle="SolidPattern">
+       <color alpha="255">
+        <red>0</red>
+        <green>85</green>
+        <blue>127</blue>
+       </color>
+      </brush>
+     </colorrole>
+    </active>
+    <inactive>
+     <colorrole role="Base">
+      <brush brushstyle="SolidPattern">
+       <color alpha="255">
+        <red>255</red>
+        <green>255</green>
+        <blue>255</blue>
+       </color>
+      </brush>
+     </colorrole>
+     <colorrole role="Window">
+      <brush brushstyle="SolidPattern">
+       <color alpha="255">
+        <red>0</red>
+        <green>85</green>
+        <blue>127</blue>
+       </color>
+      </brush>
+     </colorrole>
+    </inactive>
+    <disabled>
+     <colorrole role="Base">
+      <brush brushstyle="SolidPattern">
+       <color alpha="255">
+        <red>0</red>
+        <green>85</green>
+        <blue>127</blue>
+       </color>
+      </brush>
+     </colorrole>
+     <colorrole role="Window">
+      <brush brushstyle="SolidPattern">
+       <color alpha="255">
+        <red>0</red>
+        <green>85</green>
+        <blue>127</blue>
+       </color>
+      </brush>
+     </colorrole>
+    </disabled>
+   </palette>
+  </property>
+  <property name="autoFillBackground">
+   <bool>true</bool>
+  </property>
   <layout class="QGridLayout" name="gridLayout_3">
    <item row="0" column="0" colspan="3">
     <layout class="QHBoxLayout" name="horizontalLayout_2">
@@ -240,7 +307,7 @@
      <item row="0" column="1">
       <layout class="QGridLayout" name="gridLayout">
        <item row="0" column="0">
-        <widget class="HacSpinBox" name="monthSpinBox">
+        <widget class="QSpinBox" name="monthSpinBox">
          <property name="font">
           <font>
            <pointsize>25</pointsize>
@@ -316,7 +383,7 @@
         </widget>
        </item>
        <item row="0" column="2">
-        <widget class="HacSpinBox" name="daySpinBox">
+        <widget class="QSpinBox" name="daySpinBox">
          <property name="font">
           <font>
            <pointsize>25</pointsize>
@@ -392,7 +459,7 @@
         </widget>
        </item>
        <item row="0" column="4" colspan="2">
-        <widget class="HacSpinBox" name="yearSpinBox">
+        <widget class="QSpinBox" name="yearSpinBox">
          <property name="font">
           <font>
            <pointsize>25</pointsize>
@@ -416,7 +483,7 @@
         </widget>
        </item>
        <item row="1" column="0">
-        <widget class="HacSpinBox" name="hourSpinBox">
+        <widget class="QSpinBox" name="hourSpinBox">
          <property name="font">
           <font>
            <pointsize>25</pointsize>
@@ -489,7 +556,7 @@
         </widget>
        </item>
        <item row="1" column="2">
-        <widget class="HacSpinBox" name="minuteSpinBox">
+        <widget class="QSpinBox" name="minuteSpinBox">
          <property name="font">
           <font>
            <pointsize>25</pointsize>
@@ -559,7 +626,7 @@
         </widget>
        </item>
        <item row="1" column="4">
-        <widget class="HacSpinBox" name="secondSpinBox">
+        <widget class="QSpinBox" name="secondSpinBox">
          <property name="font">
           <font>
            <pointsize>25</pointsize>
@@ -651,7 +718,7 @@
       </spacer>
      </item>
      <item>
-      <widget class="HacPushButton" name="okButton">
+      <widget class="QPushButton" name="okButton">
        <property name="font">
         <font>
          <pointsize>20</pointsize>
@@ -663,7 +730,7 @@
       </widget>
      </item>
      <item>
-      <widget class="HacPushButton" name="cancelButton">
+      <widget class="QPushButton" name="cancelButton">
        <property name="font">
         <font>
          <pointsize>20</pointsize>
@@ -678,20 +745,6 @@
    </item>
   </layout>
  </widget>
- <customwidgets>
-  <customwidget>
-   <class>HacPushButton</class>
-   <extends>QPushButton</extends>
-   <header location="global">hacpushbutton.h</header>
-  </customwidget>
-  <customwidget>
-   <class>HacSpinBox</class>
-   <extends>QSpinBox</extends>
-   <header>hacspinbox.h</header>
-  </customwidget>
- </customwidgets>
- <resources>
-  <include location="../res/hac01.qrc"/>
- </resources>
+ <resources/>
  <connections/>
 </ui>

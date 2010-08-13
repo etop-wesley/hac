@@ -10,4 +10,4 @@ HEADERS += $${THIS_DIR}/config.h \
 
 include (gui/gui.pri)
 include (model/model.pri)
-include (device/device.pri)
+#include (device/device.pri)

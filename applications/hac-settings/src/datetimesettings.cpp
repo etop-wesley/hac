@@ -2,7 +2,6 @@
 #include <QDebug>
 #include "datetimesettings.h"
 #include "ui_datetimesettings.h"
-#include "gui.h"
 #include <QCalendarWidget>
 
 
@@ -16,8 +15,8 @@ DateTimeSettings::DateTimeSettings(QWidget *parent)
 	qDebug() << "DateTimeSettings::DateTimeSettings";
     ui->setupUi(this);
 
-	ui->okButton->setBackgroundImage(":/Hac/background-rect-button.png", true);
-	ui->cancelButton->setBackgroundImage(":/Hac/background-rect-button.png", true);
+	//ui->okButton->setBackgroundImage(":/Hac/background-rect-button.png", true);
+	//ui->cancelButton->setBackgroundImage(":/Hac/background-rect-button.png", true);
 
     QDateTime datetime = QDateTime::currentDateTime();
 	if (datetime.date().year() == 1970) { //FIXME : hwclock -w not work ?

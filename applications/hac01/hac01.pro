@@ -6,7 +6,7 @@
 # configure
 TARGET = hac01
 TEMPLATE = app
-CONFIG += release debug
+CONFIG += release
 QT -= network
 
 # directories
@@ -18,9 +18,10 @@ RCC_DIR = _rcc
 
 
 INCLUDEPATH +=	${TOOLCHAIN_USR_INSTALL}/include \
+                ${TOOLCHAIN_USR_INSTALL}/include/hacsettings \
                 ${TOOLCHAIN_USR_INSTALL}/include/hacwidgets
 	
-LIBS += -L/${TOOLCHAIN_USR_INSTALL}/lib -lhacwidgets -lqextserialport
+LIBS += -L/${TOOLCHAIN_USR_INSTALL}/lib -lhacsettings -lhacwidgets
 
 include(src/src.pri)
 include(form/form.pri)
@@ -30,3 +31,6 @@ include(ts/ts.pri)
 # install
 target.path = /${ROOTFS_INSTALL}/usr/bin
 INSTALLS += target
+
+# clean, "-r" tell qmake to remove directory
+QMAKE_DISTCLEAN += "-r" _*

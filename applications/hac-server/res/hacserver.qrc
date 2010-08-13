@@ -1,0 +1,5 @@
+<RCC>
+    <qresource prefix="/hacserver">
+        <file>images/splash.png</file>
+    </qresource>
+</RCC>
