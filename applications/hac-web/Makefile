@@ -35,8 +35,27 @@ all:
 
 # install
 .PHONY: install
-install:
-	@cp -rfv *[!Makefile] $(INSTALL_ROOT)
+install: install_index install_pages install_js install_css install_images
+
+install_index:
+	@cp -fv $(INDEX_FILE) $(INSTALL_ROOT)
+
+install_pages:
+	@mkdir -pv $(INSTALL_ROOT)/$(PAGES_DIR)
+	@cp -rfv $(PAGES_DIR)/*.htm $(INSTALL_ROOT)/$(PAGES_DIR)
+
+install_js:
+	@mkdir -pv $(INSTALL_ROOT)/$(JS_DIR)
+	@cp -rfv $(JS_DIR)/* $(INSTALL_ROOT)/$(JS_DIR)
+
+	
+install_css:
+	@mkdir -pv $(INSTALL_ROOT)/$(CSS_DIR)
+	@cp -rfv $(CSS_DIR)/* $(INSTALL_ROOT)/$(CSS_DIR)
+
+install_images:
+	@mkdir -pv $(INSTALL_ROOT)/$(IMAGES_DIR)
+	@cp -rfv $(IMAGES_DIR)/* $(INSTALL_ROOT)/$(IMAGES_DIR)
 
 # clean up
 .PHONY: clean distclean
