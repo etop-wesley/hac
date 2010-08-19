@@ -9,7 +9,8 @@ html {
 
 body {
   font: 11px/1.5 Tahoma, Helvetica, Arial, sans-serif;
-  color:#6f6f6f;
+  color:#6f6f6f; 
+  background: url(../images/bg.gif) repeat-x;
 }
 
 a:link,a:active,a:visited {
@@ -22,3 +23,75 @@ a:hover {
 img { 
   border: none;
 }
+
+#banner { background: url(../images/header_bg.gif) top; height:98px; position:relative;}
+#banner #logo { background: url(../images/logo.gif); position:absolute; top:15px; left:35px; width:115px; height:82px; }
+#banner #info { position:absolute; top:28px; left:195px; background:url(../images/info.gif) no-repeat; width:287px; height:46px;}
+#banner #link { position:absolute; top:3px; right:20px;}
+#banner #link ul { list-style:none;}
+#banner #link ul li { float:left; background:url(../images/icon.jpg) left center no-repeat; padding:0 10px 0 14px;}
+#banner #link ul li a:link,#header #link ul li a:active,#header #link ul li a:visited { color:#fff;}
+
+#nav {
+  height:32px; 
+  background: url(../images/nav_bg_tile.gif) top repeat-x; 
+}
+
+#menu {
+  float: left;
+  margin: 0 0 0 6px;
+  padding: 0;
+  border: 0;
+  width: 250px;
+  background: transparent;
+}
+#menu ul {
+  float: left;
+  font-family: "Myriad Pro", Frutiger, "Lucida Grande", 
+"Lucida Sans", "Lucida Sans Unicode", Verdana, sans-serif;
+  font-size: 1.6em;
+  width: 20px;
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
+#menu ul li {
+  display: inline; /* :KLUDGE: Removes large gaps in IE/Win */
+}
+#menu ul li a {
+  display: block;
+  width: 200px;
+  height: 39px;
+  line-height: 39px;
+  color: #000;
+  text-decoration: none;
+  background: #94B8E9 url(../images/nav_bar_normal.gif) left bottom;
+  text-indent: 50px;
+  text-transform: none;
+  white-space:nowrap;
+}
+#menu ul li a:hover, #menu ul li .selected a {
+  background: #94B8E9 url(../images/nav_bar_hover.gif) left bottom;
+  color: #fff;
+}
+#menu ul .first a {
+  height: 40px;
+  line-height: 40px;
+}
+
+#main {
+  float: left;
+  margin: 6px 0 0 6px;
+  padding: 0;
+  border: 0;
+  background: transparent;
+}
+#main div{
+  width: 607px;
+  margin: 0 0 0 15px;
+  padding: 20px 0 20px 0;
+  border:0;
+  border-top: 1px solid #aaa;
+  border-bottom: 1px solid #aaa;
+}
+
