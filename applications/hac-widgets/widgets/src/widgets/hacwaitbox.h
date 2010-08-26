@@ -16,6 +16,8 @@ class HacWaitBoxPrivate;
 class HACWIDGET_EXPORT HacWaitBox : public QDialog
 {
     Q_OBJECT
+	Q_ENUMS(WaitBoxStyle);
+    Q_PROPERTY(WaitBoxStyles waitBoxStyle READ waitBoxStyle WRITE setWaitBoxStyle);
     Q_PROPERTY(bool wasCancelled READ wasCancelled);
     Q_PROPERTY(bool cancelEnabled READ cancelEnabled WRITE setCancelEnabled);
     Q_PROPERTY(QString cancelText READ cancelText WRITE setCancelText);
@@ -25,9 +27,6 @@ class HACWIDGET_EXPORT HacWaitBox : public QDialog
     Q_PROPERTY(int expiry READ expiry WRITE setExpiry);
 
 public:
-    explicit HacWaitBox(QWidget *parent = NULL, Qt::WindowFlags f = 0);
-    ~HacWaitBox();
-
 	enum DialogCode { Cancelled = 2 };
 
     enum WaitBoxStyle {
@@ -44,6 +43,11 @@ public:
         FollowStyle // not implement, DON'T USE!
     };
 	Q_DECLARE_FLAGS(WaitBoxStyles, WaitBoxStyle)
+
+    explicit HacWaitBox(QWidget *parent = NULL, Qt::WindowFlags f = 0);
+    HacWaitBox(WaitBoxStyles styles, QWidget *parent = NULL, Qt::WindowFlags f = 0);
+    ~HacWaitBox();
+
     WaitBoxStyles waitBoxStyle() const;
     void setWaitBoxStyle(WaitBoxStyles style);
 
@@ -82,6 +86,7 @@ private Q_SLOTS:
 	void OnCancelButtonClicked();
 
 private:
+    void initPrivate();
     void reinitLayout();
     void activeImage(bool active);
     bool activeTimer(int timer, bool active);

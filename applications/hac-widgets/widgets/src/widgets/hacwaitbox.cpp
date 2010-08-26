@@ -14,17 +14,25 @@
 #include <QApplication>
 #include "hacwaitbox.h"
 
-#define BUSY_STYLE 2
+#define BUSY_STYLE 3
 #if BUSY_STYLE == 1
 #define BUSY_INTERVAL 250 // ms
-#define BUSY_ICON ":/hacwidgets/images/clock.png"
+#define BUSY_ICON ":/hacwidgets/images/clock1.png"
 #define BUSY_COUNT 60
 #elif BUSY_STYLE == 2
+#define BUSY_INTERVAL 250 // ms
+#define BUSY_ICON ":/hacwidgets/images/clock2.png"
+#define BUSY_COUNT 60
+#elif BUSY_STYLE == 3
 #define BUSY_INTERVAL 125 // ms
 #define BUSY_ICON ":/hacwidgets/images/busy.png"
 #define BUSY_COUNT 16
 #define BUSY_ICON_WIDTH 64
 #define BUSY_ICON_HEITHT 64
+#elif BUSY_STYLE == 4
+#define BUSY_INTERVAL 0 // ms
+#define BUSY_ICON ":/hacwidgets/images/bigwait.png"
+#define BUSY_COUNT 0
 #endif
 
 class ImageLabel : public QWidget {
@@ -39,7 +47,8 @@ public Q_SLOTS:
 			killTimer(timer);
 			timer = 0;
 		}
-		timer = startTimer(BUSY_INTERVAL);
+		if (BUSY_INTERVAL >= 0)
+			timer = startTimer(BUSY_INTERVAL);
 	}
 
 	void stop() {
@@ -77,9 +86,9 @@ ImageLabel::ImageLabel(QWidget *parent)
 	QImageReader imgReader(BUSY_ICON);
 	QImage img = imgReader.read();
 	busyIcon = QPixmap::fromImage(img);
-#if BUSY_STYLE == 1
+#if BUSY_STYLE == 1 || BUSY_STYLE == 2 || BUSY_STYLE == 4
 	count = BUSY_COUNT;
-#elif BUSY_STYLE == 2
+#elif BUSY_STYLE == 3
 	count = busyIcon.width() / busyIcon.height();
 #endif
 }
@@ -91,9 +100,9 @@ ImageLabel::~ImageLabel()
 
 QSize ImageLabel::sizeHint() const
 {
-#if BUSY_STYLE == 1
+#if BUSY_STYLE == 1 || BUSY_STYLE == 2 || BUSY_STYLE == 4
 	return busyIcon.size();
-#elif BUSY_STYLE == 2
+#elif BUSY_STYLE == 3
 	return QSize(busyIcon.height(), busyIcon.height());
 #endif
 }
@@ -101,14 +110,16 @@ QSize ImageLabel::sizeHint() const
 void ImageLabel::paintEvent(QPaintEvent *)
 {
 	QPainter p(this);
-#if BUSY_STYLE == 1
+#if BUSY_STYLE == 1 || BUSY_STYLE == 2 || BUSY_STYLE == 4
 	p.drawPixmap((width() - busyIcon.width())/2, (height() - busyIcon.height())/2, busyIcon);
+#if BUSY_STYLE != 4
 	p.setRenderHint(QPainter::Antialiasing, true);
 	p.setPen(QPen(Qt::black, 2));
 	p.translate(qreal(rect().width())/2.0, qreal(rect().height())/2.0);
 	p.rotate(index * 360/BUSY_COUNT);
 	p.drawLine(0, 0, 0, busyIcon.width()/2 - busyIcon.width()/8);
-#elif BUSY_STYLE == 2
+#endif
+#elif BUSY_STYLE == 3
 	p.drawPixmap((width() - busyIcon.height())/2, (height() - busyIcon.height())/2, busyIcon.copy(index*busyIcon.height(), 0, busyIcon.height(), busyIcon.height()));
 #endif
 }
@@ -155,24 +166,11 @@ public:
   Constructs an HacWaitBox object with the given \a parent and flag.
 */
 HacWaitBox::HacWaitBox(QWidget *parent, Qt::WindowFlags f)
-: QDialog(parent, f)
+: QDialog(parent, f), d(new HacWaitBoxPrivate)
 {
 	qDebug() << "HacWaitBox::HacWaitBox";
 
-	d = new HacWaitBoxPrivate;
-	d->waitBoxStyles = (WaitBoxStyles)(BothIconText | TextRightIcon | CancalButtonIfNeed);
-	d->gridLayout = NULL;
-	d->textLabel = NULL;
-	d->imageLabel = NULL;
-	d->cancelButton = NULL;
-	d->cancelEnabled = false;
-	d->wasCancelled = false;
-	d->showDelayTId = 0;
-	d->showDelayTime = 0;
-	d->hideDelayTId = 0;
-	d->hideDelayTime = 0;
-	d->expiryTId = 0;
-	d->expiryTime = 0;
+	initPrivate();
 
 	setModal(true);
 	//setWindowFlags(Qt::SplashScreen);
@@ -187,6 +185,26 @@ HacWaitBox::HacWaitBox(QWidget *parent, Qt::WindowFlags f)
 	resize(sizeHint());
 }
 
+HacWaitBox::HacWaitBox(WaitBoxStyles styles, QWidget *parent, Qt::WindowFlags f)
+: QDialog(parent, f), d(new HacWaitBoxPrivate)
+{
+	initPrivate();
+	d->waitBoxStyles = styles;
+
+	setModal(true);
+	//setWindowFlags(Qt::SplashScreen);
+
+	//setAttribute(Qt::WA_PaintOnScreen, true);
+	setAttribute(Qt::WA_OpaquePaintEvent, true);
+	setAttribute(Qt::WA_NoSystemBackground, true);
+	setAutoFillBackground(false);
+
+	reinitLayout();
+
+	resize(sizeHint());
+
+}
+
 /*!
 	Destroys a HacWaitBox
 	*/
@@ -195,6 +213,23 @@ HacWaitBox::~HacWaitBox()
 	qDebug() << "HacWaitBox::~HacWaitBox";
 
 	delete d;
+}
+
+void HacWaitBox::initPrivate()
+{
+	d->waitBoxStyles = (WaitBoxStyles)(BothIconText | TextRightIcon | CancalButtonIfNeed);
+	d->gridLayout = NULL;
+	d->textLabel = NULL;
+	d->imageLabel = NULL;
+	d->cancelButton = NULL;
+	d->cancelEnabled = false;
+	d->wasCancelled = false;
+	d->showDelayTId = 0;
+	d->showDelayTime = 0;
+	d->hideDelayTId = 0;
+	d->hideDelayTime = 0;
+	d->expiryTId = 0;
+	d->expiryTime = 0;
 }
 
 void HacWaitBox::reinitLayout()
@@ -293,6 +328,8 @@ QSize HacWaitBox::sizeHint() const
 
 void HacWaitBox::paintEvent(QPaintEvent *e)
 {
+	Q_UNUSED(e)
+
 	QPainter p(this);
 	QPalette pal = palette();
 	p.fillRect(rect(), pal.brush(QPalette::Window));
