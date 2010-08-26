@@ -25,6 +25,7 @@ private Q_SLOTS:
 private:
 	void readSettings();
 	void writeSettings();
+	void showWindow(const QString &name);
 
 private:
     Ui::HomePage *ui;

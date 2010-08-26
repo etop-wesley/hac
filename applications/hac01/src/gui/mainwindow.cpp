@@ -40,7 +40,7 @@ void MainWindow::readSettings()
 	qDebug() << "MainWindow::readSettings";
 
 	// setup background
-	QImage image(":/HAC01/desktop-wallpaper.png");
+	QImage image(":/hac01/images/desktop-wallpaper.png");
 	if (!image.isNull()) {
 		QPalette palette;
 		palette = this->palette();

@@ -13,7 +13,7 @@ RoomChoose::RoomChoose(QWidget *parent, Qt::WindowFlags f)
     ui->setupUi(this);
 
     QImage image;
-    image.load(":/HAC01/button2-background.png");
+    image.load(":/hac01/images/button2-background.png");
     if (!image.isNull()) {
         QPalette pal;
         pal = ui->prevButton->palette();
@@ -79,8 +79,8 @@ void RoomChoose::OnListWidgetItemClicked(QListWidgetItem *item)
     if (row != ui->listWidget->currentRow())
         return;
 
-    AutoControlMain *ctrl = qobject_cast<AutoControlMain *>(HacApp->showWindow("AutoControlMain"));
-    ctrl->setCurrentRoomName(item->text());
-    ctrl->setCurrentControlIndex(0);
+    //AutoControlMain *ctrl = qobject_cast<AutoControlMain *>(HacApp->showWindow("AutoControlMain"));
+    //ctrl->setCurrentRoomName(item->text());
+    //ctrl->setCurrentControlIndex(0);
 }
 

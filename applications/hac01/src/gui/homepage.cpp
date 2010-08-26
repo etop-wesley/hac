@@ -6,6 +6,9 @@
 #include "homepage.h"
 #include "ui_homepage.h"
 #include "hacapplication.h"
+#include "stagecontrol.h"
+#include "roomchoose.h"
+#include "calendarcontrol.h"
 
 HomePage::HomePage(QWidget *parent,  Qt::WindowFlags f)
 :   QWidget(parent, f), ui(new Ui::HomePage)
@@ -25,8 +28,8 @@ HomePage::HomePage(QWidget *parent,  Qt::WindowFlags f)
 
     ui->calendarButton->setPaletteBrushPanel(true);
     QPalette pal = ui->calendarButton->palette();
-    pal.setBrush(QPalette::Button, QPixmap(":/HAC01/button-background-normal-256x64.png"));
-    pal.setBrush(QPalette::Light, QPixmap(":/HAC01/button-background-active-256x64.png"));
+    pal.setBrush(QPalette::Button, QPixmap(":/hac01/images/button-background-normal-256x64.png"));
+    pal.setBrush(QPalette::Light, QPixmap(":/hac01/images/button-background-active-256x64.png"));
     ui->calendarButton->setPalette(pal);
 
     connect(ui->menuListWidget, SIGNAL(itemClicked(QListWidgetItem *)),  this, SLOT(OnMenuListWidgetItemClicked(QListWidgetItem *)));
@@ -45,6 +48,17 @@ HomePage::~HomePage()
 void HomePage::readSettings()
 {
     qDebug() << "HomePage::readSettings";
+	QImage image(":/hacwidgets/images/global-background-window.png");
+	if (!image.isNull()) {
+		QPalette palette;
+		palette = this->palette();
+		palette.setBrush(this->backgroundRole(), image); 
+		this->setPalette(palette);
+		this->setAutoFillBackground(true);
+	} else {
+		qDebug() << "can not find desktop background image";
+	}
+
 }
 
 void HomePage::writeSettings()
@@ -91,11 +105,34 @@ void HomePage::OnMenuListWidgetItemClicked(QListWidgetItem *item)
     if (name.isEmpty())
         return;
 
-	HacApp->showWindow(name);
+	showWindow(name);
 }
 
 void HomePage::OnCalendarButtonClicked()
 {
     qDebug() << "HomePage::OnCalendarButtonClicked";
+	showWindow("CalendarControl");
+}
 
+void HomePage::showWindow(const QString &name)
+{
+    qDebug() << "HomePage::showWindow" << name;
+    if (name.isEmpty())
+        return;
+
+	QWidget *window = HacApplication::findWindow(name);
+	if (window == NULL) {
+		if (name == "StageControl")
+			window = new StageControl;
+		else if (name == "RoomChoose")
+			window = new RoomChoose;
+		else if (name == "CalendarControl")
+			window = new CalendarControl;
+
+		if (window != NULL) {
+			window->setAttribute(Qt::WA_DeleteOnClose, true);
+		}
+	}
+
+	window->showMaximized();
 }

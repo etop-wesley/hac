@@ -49,7 +49,7 @@
        </property>
        <property name="icon">
         <iconset resource="../res/hac01.qrc">
-         <normaloff>:/HAC01/start-32x32.png</normaloff>:/HAC01/start-32x32.png</iconset>
+         <normaloff>:/hac01/images/start-32x32.png</normaloff>:/hac01/images/start-32x32.png</iconset>
        </property>
        <property name="iconSize">
         <size>
@@ -91,7 +91,7 @@
        </property>
        <property name="icon">
         <iconset resource="../res/hac01.qrc">
-         <normaloff>:/HAC01/stop-32x32.png</normaloff>:/HAC01/stop-32x32.png</iconset>
+         <normaloff>:/hac01/images/stop-32x32.png</normaloff>:/hac01/images/stop-32x32.png</iconset>
        </property>
        <property name="iconSize">
         <size>
@@ -443,7 +443,7 @@
          </property>
          <property name="icon">
           <iconset resource="../res/hac01.qrc">
-           <normaloff>:/HAC01/go-up.png</normaloff>:/HAC01/go-up.png</iconset>
+           <normaloff>:/hac01/images/go-up.png</normaloff>:/hac01/images/go-up.png</iconset>
          </property>
          <property name="iconSize">
           <size>
@@ -482,7 +482,7 @@
          </property>
          <property name="icon">
           <iconset resource="../res/hac01.qrc">
-           <normaloff>:/HAC01/go-down.png</normaloff>:/HAC01/go-down.png</iconset>
+           <normaloff>:/hac01/images/go-down.png</normaloff>:/hac01/images/go-down.png</iconset>
          </property>
          <property name="iconSize">
           <size>

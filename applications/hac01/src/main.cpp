@@ -1,9 +1,9 @@
 //#define QT_NO_DEBUG_OUTPUT
 #include <QDebug>
+#include <QStringList>
 
-#include "config.h"
-#include "gui/hacapplication.h"
-#include "gui/mainwindow.h"
+#include "hacapplication.h"
+#include "homepage.h"
 
 /**
  * main entry
@@ -18,12 +18,8 @@ int main(int argc, char *argv[])
     // the resources are listed in hac01.qrc 
     Q_INIT_RESOURCE(hac01);
 
-    //MainWindow mw;
-	QWidget *w = app.showWindow("HomePage");
-    //mw.showMaximized();
-
-	//app.setMainWindow(&mw);
-    app.processEvents();
+	HomePage home;
+	home.showMaximized();
 
     int r = app.exec();
     Q_CLEANUP_RESOURCE(hac01);

@@ -156,7 +156,7 @@ control</string>
      </property>
      <property name="icon">
       <iconset resource="../res/hac01.qrc">
-       <normaloff>:/HAC01/start-32x32.png</normaloff>:/HAC01/start-32x32.png</iconset>
+       <normaloff>:/hac01/images/start-32x32.png</normaloff>:/hac01/images/start-32x32.png</iconset>
      </property>
      <property name="iconSize">
       <size>
@@ -206,7 +206,7 @@ control</string>
      </property>
      <property name="icon">
       <iconset resource="../res/hac01.qrc">
-       <normaloff>:/HAC01/stop-32x32.png</normaloff>:/HAC01/stop-32x32.png</iconset>
+       <normaloff>:/hac01/images/stop-32x32.png</normaloff>:/hac01/images/stop-32x32.png</iconset>
      </property>
      <property name="iconSize">
       <size>
@@ -279,6 +279,13 @@ control</string>
        <horstretch>0</horstretch>
        <verstretch>0</verstretch>
       </sizepolicy>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>20</pointsize>
+       <weight>50</weight>
+       <bold>false</bold>
+      </font>
      </property>
      <property name="text">
       <string>OFF</string>

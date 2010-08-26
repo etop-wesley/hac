@@ -121,8 +121,8 @@
         </property>
         <property name="icon">
          <iconset resource="../res/hac01.qrc">
-          <normaloff>:/HAC01/stage-normal.png</normaloff>
-          <activeoff>:/HAC01/stage-active.png</activeoff>:/HAC01/stage-normal.png</iconset>
+          <normaloff>:/hac01/images/stage-normal.png</normaloff>
+          <activeoff>:/hac01/images/stage-active.png</activeoff>:/hac01/images/stage-normal.png</iconset>
         </property>
        </item>
        <item>
@@ -131,8 +131,8 @@
         </property>
         <property name="icon">
          <iconset resource="../res/hac01.qrc">
-          <normaloff>:/HAC01/control-normal.png</normaloff>
-          <activeoff>:/HAC01/control-active.png</activeoff>:/HAC01/control-normal.png</iconset>
+          <normaloff>:/hac01/images/control-normal.png</normaloff>
+          <activeoff>:/hac01/images/control-active.png</activeoff>:/hac01/images/control-normal.png</iconset>
         </property>
        </item>
        <item>
@@ -141,8 +141,8 @@
         </property>
         <property name="icon">
          <iconset resource="../res/hac01.qrc">
-          <normaloff>:/HAC01/music-normal.png</normaloff>
-          <activeoff>:/HAC01/music-active.png</activeoff>:/HAC01/music-normal.png</iconset>
+          <normaloff>:/hac01/images/music-normal.png</normaloff>
+          <activeoff>:/hac01/images/music-active.png</activeoff>:/hac01/images/music-normal.png</iconset>
         </property>
        </item>
        <item>
@@ -151,8 +151,8 @@
         </property>
         <property name="icon">
          <iconset resource="../res/hac01.qrc">
-          <normaloff>:/HAC01/photo-normal.png</normaloff>
-          <activeoff>:/HAC01/photo-active.png</activeoff>:/HAC01/photo-normal.png</iconset>
+          <normaloff>:/hac01/images/photo-normal.png</normaloff>
+          <activeoff>:/hac01/images/photo-active.png</activeoff>:/hac01/images/photo-normal.png</iconset>
         </property>
        </item>
        <item>
@@ -161,8 +161,8 @@
         </property>
         <property name="icon">
          <iconset resource="../res/hac01.qrc">
-          <normaloff>:/HAC01/settings-normal.png</normaloff>
-          <activeoff>:/HAC01/settings-active.png</activeoff>:/HAC01/settings-normal.png</iconset>
+          <normaloff>:/hac01/images/settings-normal.png</normaloff>
+          <activeoff>:/hac01/images/settings-active.png</activeoff>:/hac01/images/settings-normal.png</iconset>
         </property>
        </item>
       </widget>

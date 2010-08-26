@@ -23,24 +23,40 @@ AutoControlMain::AutoControlMain(QWidget *parent, Qt::WindowFlags f)
 	ui->stackedWidget->setAttribute(Qt::WA_NoSystemBackground, true);
 	ui->stackedWidget->setAutoFillBackground(false);
 #endif // HAC_PERFORMANCE_FIXUP
-
 /*
-    QIcon icon;
-    icon.addFile(":/HAC01/button-background-black-normal-150x50.png", QSize(), QIcon::Normal);
-    icon.addFile(":/HAC01/button-background-black-active-150x50.png", QSize(), QIcon::Active);
-    if (!icon.isNull()) {
-        ui->acButton->setAutoFillBackground(false);
-        ui->acButton->setBackgroundIcon(icon);
-        ui->heatingButton->setAutoFillBackground(false);
-        ui->heatingButton->setBackgroundIcon(icon);
-        ui->curtainsButton->setAutoFillBackground(false);
-        ui->curtainsButton->setBackgroundIcon(icon);
-        ui->lightingsButton->setAutoFillBackground(false);
-        ui->lightingsButton->setBackgroundIcon(icon);
-        ui->switchesButton->setAutoFillBackground(false);
-        ui->switchesButton->setBackgroundIcon(icon);
+	QPixmap normalPixmap(":/hac01/images/button-background-black-normal-150x50.png");
+	QPixmap activePixmap(":/hac01/images/button-background-black-active-150x50.png");
+	QPalette pal;
 
-    }
+	ui->acButton->setPaletteBrushPanel(true);
+    pal = ui->acButton->palette();
+    pal.setBrush(QPalette::Button, normalPixmap);
+    pal.setBrush(QPalette::Light, activePixmap);
+    ui->acButton->setPalette(pal);
+
+    ui->heatingButton->setPaletteBrushPanel(true);
+    pal = ui->heatingButton->palette();
+    pal.setBrush(QPalette::Button, normalPixmap);
+    pal.setBrush(QPalette::Light, activePixmap);
+    ui->heatingButton->setPalette(pal);
+
+    ui->curtainsButton->setPaletteBrushPanel(true);
+    pal = ui->curtainsButton->palette();
+    pal.setBrush(QPalette::Button, normalPixmap);
+    pal.setBrush(QPalette::Light, activePixmap);
+    ui->curtainsButton->setPalette(pal);
+
+    ui->lightingsButton->setPaletteBrushPanel(true);
+    pal = ui->lightingsButton->palette();
+    pal.setBrush(QPalette::Button, normalPixmap);
+    pal.setBrush(QPalette::Light, activePixmap);
+    ui->lightingsButton->setPalette(pal);
+
+    ui->switchesButton->setPaletteBrushPanel(true);
+    pal = ui->switchesButton->palette();
+    pal.setBrush(QPalette::Button, normalPixmap);
+    pal.setBrush(QPalette::Light, activePixmap);
+    ui->switchesButton->setPalette(pal);
 */
     #if 0
     connect(ui->listWidget, SIGNAL(itemClicked(QListWidgetItem *)),  this, SLOT(OnListWidgetItemClicked(QListWidgetItem *)));

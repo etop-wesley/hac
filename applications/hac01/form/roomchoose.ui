@@ -110,8 +110,8 @@
         </property>
         <property name="icon">
          <iconset resource="../res/hac01.qrc">
-          <normaloff>:/HAC01/room-normal.png</normaloff>
-          <activeoff>:/HAC01/room-active.png</activeoff>:/HAC01/room-normal.png</iconset>
+          <normaloff>:/hac01/images/room-normal.png</normaloff>
+          <activeoff>:/hac01/images/room-active.png</activeoff>:/hac01/images/room-normal.png</iconset>
         </property>
        </item>
        <item>
@@ -120,8 +120,8 @@
         </property>
         <property name="icon">
          <iconset resource="../res/hac01.qrc">
-          <normaloff>:/HAC01/room-normal.png</normaloff>
-          <activeoff>:/HAC01/room-active.png</activeoff>:/HAC01/room-normal.png</iconset>
+          <normaloff>:/hac01/images/room-normal.png</normaloff>
+          <activeoff>:/hac01/images/room-active.png</activeoff>:/hac01/images/room-normal.png</iconset>
         </property>
        </item>
        <item>
@@ -130,8 +130,8 @@
         </property>
         <property name="icon">
          <iconset resource="../res/hac01.qrc">
-          <normaloff>:/HAC01/room-normal.png</normaloff>
-          <activeoff>:/HAC01/room-active.png</activeoff>:/HAC01/room-normal.png</iconset>
+          <normaloff>:/hac01/images/room-normal.png</normaloff>
+          <activeoff>:/hac01/images/room-active.png</activeoff>:/hac01/images/room-normal.png</iconset>
         </property>
        </item>
        <item>
@@ -140,8 +140,8 @@
         </property>
         <property name="icon">
          <iconset resource="../res/hac01.qrc">
-          <normaloff>:/HAC01/room-normal.png</normaloff>
-          <activeoff>:/HAC01/room-active.png</activeoff>:/HAC01/room-normal.png</iconset>
+          <normaloff>:/hac01/images/room-normal.png</normaloff>
+          <activeoff>:/hac01/images/room-active.png</activeoff>:/hac01/images/room-normal.png</iconset>
         </property>
        </item>
        <item>
@@ -150,8 +150,8 @@
         </property>
         <property name="icon">
          <iconset resource="../res/hac01.qrc">
-          <normaloff>:/HAC01/room-normal.png</normaloff>
-          <activeoff>:/HAC01/room-active.png</activeoff>:/HAC01/room-normal.png</iconset>
+          <normaloff>:/hac01/images/room-normal.png</normaloff>
+          <activeoff>:/hac01/images/room-active.png</activeoff>:/hac01/images/room-normal.png</iconset>
         </property>
        </item>
        <item>
@@ -160,8 +160,8 @@
         </property>
         <property name="icon">
          <iconset resource="../res/hac01.qrc">
-          <normaloff>:/HAC01/room-normal.png</normaloff>
-          <activeoff>:/HAC01/room-active.png</activeoff>:/HAC01/room-normal.png</iconset>
+          <normaloff>:/hac01/images/room-normal.png</normaloff>
+          <activeoff>:/hac01/images/room-active.png</activeoff>:/hac01/images/room-normal.png</iconset>
         </property>
        </item>
        <item>
@@ -170,8 +170,8 @@
         </property>
         <property name="icon">
          <iconset resource="../res/hac01.qrc">
-          <normaloff>:/HAC01/room-normal.png</normaloff>
-          <activeoff>:/HAC01/room-active.png</activeoff>:/HAC01/room-normal.png</iconset>
+          <normaloff>:/hac01/images/room-normal.png</normaloff>
+          <activeoff>:/hac01/images/room-active.png</activeoff>:/hac01/images/room-normal.png</iconset>
         </property>
        </item>
       </widget>
@@ -199,7 +199,7 @@
        </property>
        <property name="icon">
         <iconset resource="../res/hac01.qrc">
-         <normaloff>:/HAC01/go-previous.png</normaloff>:/HAC01/go-previous.png</iconset>
+         <normaloff>:/hac01/images/go-previous.png</normaloff>:/hac01/images/go-previous.png</iconset>
        </property>
        <property name="iconSize">
         <size>
@@ -222,7 +222,7 @@
        </property>
        <property name="icon">
         <iconset resource="../res/hac01.qrc">
-         <normaloff>:/HAC01/go-next.png</normaloff>:/HAC01/go-next.png</iconset>
+         <normaloff>:/hac01/images/go-next.png</normaloff>:/hac01/images/go-next.png</iconset>
        </property>
        <property name="iconSize">
         <size>

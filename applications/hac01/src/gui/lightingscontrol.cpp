@@ -9,6 +9,117 @@ LightingsControl::LightingsControl(QWidget *parent, Qt::WindowFlags f)
 {
     qDebug() << "LightingsControl::LightingsControl";
     ui->setupUi(this);
+
+	QPixmap normalPixmap;
+	QPixmap activePixmap;
+	QPalette pal;
+
+	normalPixmap.load(":/hac01/images/button-background-normal-128x64.png");
+	activePixmap.load(":/hac01/images/button-background-active-128x64.png");
+
+    pal = ui->allOnButton->palette();
+    pal.setBrush(QPalette::Button, normalPixmap);
+    pal.setBrush(QPalette::Light, activePixmap);
+    ui->allOnButton->setPalette(pal);
+	ui->allOnButton->setPaletteBrushPanel(true);
+
+    pal = ui->allOffButton->palette();
+    pal.setBrush(QPalette::Button, normalPixmap);
+    pal.setBrush(QPalette::Light, activePixmap);
+    ui->allOffButton->setPalette(pal);
+	ui->allOffButton->setPaletteBrushPanel(true);
+
+	normalPixmap.load(":/hac01/images/button-background-normal-64x128.png");
+	activePixmap.load(":/hac01/images/button-background-active-64x128.png");
+
+    pal = ui->singleOnButton->palette();
+    pal.setBrush(QPalette::Button, normalPixmap);
+    pal.setBrush(QPalette::Light, activePixmap);
+    ui->singleOnButton->setPalette(pal);
+	ui->singleOnButton->setPaletteBrushPanel(true);
+
+    pal = ui->singleOffButton->palette();
+    pal.setBrush(QPalette::Button, normalPixmap);
+    pal.setBrush(QPalette::Light, activePixmap);
+    ui->singleOffButton->setPalette(pal);
+	ui->singleOffButton->setPaletteBrushPanel(true);
+
+
+	normalPixmap.load(":/hac01/images/button-background-normal-32x32.png");
+	activePixmap.load(":/hac01/images/button-background-active-32x32.png");
+
+    pal = ui->pushButton_1->palette();
+    pal.setBrush(QPalette::Button, normalPixmap);
+    pal.setBrush(QPalette::Light, activePixmap);
+    ui->pushButton_1->setPalette(pal);
+	ui->pushButton_1->setPaletteBrushPanel(true);
+
+    pal = ui->pushButton_2->palette();
+    pal.setBrush(QPalette::Button, normalPixmap);
+    pal.setBrush(QPalette::Light, activePixmap);
+    ui->pushButton_2->setPalette(pal);
+	ui->pushButton_2->setPaletteBrushPanel(true);
+
+    pal = ui->pushButton_3->palette();
+    pal.setBrush(QPalette::Button, normalPixmap);
+    pal.setBrush(QPalette::Light, activePixmap);
+    ui->pushButton_3->setPalette(pal);
+	ui->pushButton_3->setPaletteBrushPanel(true);
+
+    pal = ui->pushButton_4->palette();
+    pal.setBrush(QPalette::Button, normalPixmap);
+    pal.setBrush(QPalette::Light, activePixmap);
+    ui->pushButton_4->setPalette(pal);
+	ui->pushButton_4->setPaletteBrushPanel(true);
+
+    pal = ui->pushButton_5->palette();
+    pal.setBrush(QPalette::Button, normalPixmap);
+    pal.setBrush(QPalette::Light, activePixmap);
+    ui->pushButton_5->setPalette(pal);
+	ui->pushButton_5->setPaletteBrushPanel(true);
+
+    pal = ui->pushButton_6->palette();
+    pal.setBrush(QPalette::Button, normalPixmap);
+    pal.setBrush(QPalette::Light, activePixmap);
+    ui->pushButton_6->setPalette(pal);
+	ui->pushButton_6->setPaletteBrushPanel(true);
+
+    pal = ui->pushButton_7->palette();
+    pal.setBrush(QPalette::Button, normalPixmap);
+    pal.setBrush(QPalette::Light, activePixmap);
+    ui->pushButton_7->setPalette(pal);
+	ui->pushButton_7->setPaletteBrushPanel(true);
+
+    pal = ui->pushButton_8->palette();
+    pal.setBrush(QPalette::Button, normalPixmap);
+    pal.setBrush(QPalette::Light, activePixmap);
+    ui->pushButton_8->setPalette(pal);
+	ui->pushButton_8->setPaletteBrushPanel(true);
+
+    pal = ui->pushButton_9->palette();
+    pal.setBrush(QPalette::Button, normalPixmap);
+    pal.setBrush(QPalette::Light, activePixmap);
+    ui->pushButton_9->setPalette(pal);
+	ui->pushButton_9->setPaletteBrushPanel(true);
+
+	pal = ui->pushButton_10->palette();
+    pal.setBrush(QPalette::Button, normalPixmap);
+    pal.setBrush(QPalette::Light, activePixmap);
+    ui->pushButton_10->setPalette(pal);
+	ui->pushButton_10->setPaletteBrushPanel(true);
+
+    pal = ui->pushButton_11->palette();
+    pal.setBrush(QPalette::Button, normalPixmap);
+    pal.setBrush(QPalette::Light, activePixmap);
+    ui->pushButton_11->setPalette(pal);
+	ui->pushButton_11->setPaletteBrushPanel(true);
+
+    pal = ui->pushButton_12->palette();
+    pal.setBrush(QPalette::Button, normalPixmap);
+    pal.setBrush(QPalette::Light, activePixmap);
+    ui->pushButton_12->setPalette(pal);
+	ui->pushButton_12->setPaletteBrushPanel(true);
+
 /*
     QIcon icon;
     icon.addFile(":/HAC01/button-background-normal-128x64.png", QSize(), QIcon::Normal);

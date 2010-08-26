@@ -11,6 +11,9 @@
    </rect>
   </property>
   <layout class="QGridLayout" name="gridLayout">
+   <item row="1" column="0">
+    <widget class="QStackedWidget" name="stackedWidget"/>
+   </item>
    <item row="0" column="0">
     <layout class="QHBoxLayout" name="horizontalLayout">
      <item>
@@ -28,7 +31,7 @@
         </size>
        </property>
        <property name="icon">
-        <iconset resource="../res/hac01.qrc">
+        <iconset>
          <normaloff>:/HAC01/go-home.png</normaloff>:/HAC01/go-home.png</iconset>
        </property>
        <property name="iconSize">
@@ -54,7 +57,7 @@
         </size>
        </property>
        <property name="icon">
-        <iconset resource="../res/hac01.qrc">
+        <iconset>
          <normaloff>:/HAC01/go-back.png</normaloff>:/HAC01/go-back.png</iconset>
        </property>
        <property name="iconSize">
@@ -114,9 +117,6 @@
       <widget class="HacDateTimeLabel" name="dateTimeLabel"/>
      </item>
     </layout>
-   </item>
-   <item row="1" column="0">
-    <widget class="QStackedWidget" name="stackedWidget"/>
    </item>
   </layout>
  </widget>

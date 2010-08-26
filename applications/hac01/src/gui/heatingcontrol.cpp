@@ -9,6 +9,41 @@ HeatingControl::HeatingControl(QWidget *parent, Qt::WindowFlags f)
 {
 	qDebug() << "HeatingControl::HeatingControl";
     ui->setupUi(this);
+
+	QPixmap normalPixmap;
+	QPixmap activePixmap;
+	QPalette pal;
+
+	normalPixmap.load(":/hac01/images/button-background-normal-64x64.png");
+	activePixmap.load(":/hac01/images/button-background-active-64x64.png");
+
+    pal = ui->tempUpButton->palette();
+    pal.setBrush(QPalette::Button, normalPixmap);
+    pal.setBrush(QPalette::Light, activePixmap);
+    ui->tempUpButton->setPalette(pal);
+	ui->tempUpButton->setPaletteBrushPanel(true);
+
+    pal = ui->tempDownButton->palette();
+    pal.setBrush(QPalette::Button, normalPixmap);
+    pal.setBrush(QPalette::Light, activePixmap);
+    ui->tempDownButton->setPalette(pal);
+	ui->tempDownButton->setPaletteBrushPanel(true);
+
+	normalPixmap.load(":/hac01/images/button-background-normal-128x64.png");
+	activePixmap.load(":/hac01/images/button-background-active-128x64.png");
+
+    pal = ui->startButton->palette();
+    pal.setBrush(QPalette::Button, normalPixmap);
+    pal.setBrush(QPalette::Light, activePixmap);
+    ui->startButton->setPalette(pal);
+	ui->startButton->setPaletteBrushPanel(true);
+
+    pal = ui->stopButton->palette();
+    pal.setBrush(QPalette::Button, normalPixmap);
+    pal.setBrush(QPalette::Light, activePixmap);
+    ui->stopButton->setPalette(pal);
+	ui->stopButton->setPaletteBrushPanel(true);
+
 /*
     QIcon icon;
     icon.addFile(":/HAC01/button-background-normal-64x64.png", QSize(), QIcon::Normal);
