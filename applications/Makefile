@@ -17,7 +17,7 @@ LIB_HACSETTINGS	:= hac-settings
 LIB_HACPLUGINS	:= hac-plugins
 
 # libraries list, the library should be built before application
-QT_LIBS			:= $(LIB_HACWIDGETS)
+QT_LIBS			:= $(LIB_HACWIDGETS) $(LIB_HACSETTINGS)
 
 # applications those need qmake to go there
 QT_APPS 		:= $(APP_HACSERVER) $(APP_HAC01)
