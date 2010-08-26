@@ -1,0 +1,72 @@
+<form action="/cgi-bin/hac.cgi" method="get">
+<div id="nav">
+	<ul>
+		REGION_LIST
+	</ul>
+</div>
+</form>
+<form action="/cgi-bin/hac.cgi" method="get">
+	<div id="buttondiv4">
+		Region Name: <input type="text" name="_Region_Name" />
+		Region Description: <input type="text" name="_Device_Description" />
+	</div>
+	<div id="buttondiv5">
+		<input type="submit" name="_Region_Add" value="Add Region" />
+	</div>
+</form>
+<form action="/cgi-bin/hac.cgi" method="get">
+	<div id="listdiv">
+		<table class="tableone">
+			<caption>Region List</caption> 
+			<thead> 
+				<tr> 
+					<th class="th1">&nbsp;</th> 
+					<th class="th2">ID</th> 
+					<th class="th3">Name</th> 
+					<th class="th4">Description</th> 
+					<th class="th5">Type</th> 
+					<th class="th6">Address</th> 
+					<th class="th7">Status</th> 
+				</tr> 
+			</thead> 
+			<tfoot> 
+				<tr> 
+					<td colspan="7">Total: 10</td> 
+				</tr> 
+			</tfoot> 
+			
+			<tbody> 
+				<tr><td colspan="7"> 
+						<div class="tablediv">						
+							<table id="tabletwo" class="pickme"> <tbody> 
+									DEVICE_TABLE_BODY
+								</tbody> </table> 
+						</div> 
+					</td></tr>
+			</tbody> 
+		</table> 
+	</div>
+	
+	<div id="buttondiv1">
+		<input type="submit" name="_Region_Remove" value="Remove" />
+		<input type="submit" name="_Region_Check" value="Check" />
+		<input type="submit" name="_Region_Refresh" value="Refresh" />
+	</div>
+</form>
+<form action="/cgi-bin/hac.cgi" method="get">
+	<div id="buttondiv2">
+		Name: <input type="text" name="_Region_Name" />
+		Description: <input type="text" name="_Device_Description" />
+		Type: <select name="_Device_Type">
+			<option value="A">A</option>
+			<option value="H">H</option>
+			<option value="C">C</option>
+			<option value="L">L</option>
+			<option value="S">S</option>
+		</select>
+		Address: <input type="text" name="_Device_Address" />
+	</div>
+	<div id="buttondiv3">
+		<input type="submit" name="_Device_Add" value="Add Device" />
+	</div>
+</form>

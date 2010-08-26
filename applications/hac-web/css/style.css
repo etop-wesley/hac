@@ -10,7 +10,7 @@ html {
 body {
   font: 11px/1.5 Tahoma, Helvetica, Arial, sans-serif;
   color:#6f6f6f; 
-  background: url(../images/bg.gif) repeat-x;
+  background: url(/images/bg.gif) repeat-x;
 }
 
 a:link,a:active,a:visited {
@@ -24,20 +24,20 @@ img {
   border: none;
 }
 
-#banner { background: url(../images/header_bg.gif) top; height:98px; position:relative;}
-#banner #logo { background: url(../images/logo.gif); position:absolute; top:15px; left:35px; width:115px; height:82px; }
-#banner #info { position:absolute; top:28px; left:195px; background:url(../images/info.gif) no-repeat; width:287px; height:46px;}
-#banner #link { position:absolute; top:3px; right:20px;}
-#banner #link ul { list-style:none;}
-#banner #link ul li { float:left; background:url(../images/icon.jpg) left center no-repeat; padding:0 10px 0 14px;}
-#banner #link ul li a:link,#header #link ul li a:active,#header #link ul li a:visited { color:#fff;}
+#header { background: url(/images/header_bg.gif) top; height:98px; position:relative;}
+#header #logo { background: url(/images/logo.gif); position:absolute; top:15px; left:35px; width:115px; height:82px; }
+#header #info { position:absolute; top:28px; left:195px; background:url(/images/info.gif) no-repeat; width:287px; height:46px;}
+#header #link { position:absolute; top:3px; right:20px;}
+#header #link ul { list-style:none;}
+#header #link ul li { float:left; background:url(/images/icon.jpg) left center no-repeat; padding:0 10px 0 14px;}
+#header #link ul li a:link,#header #link ul li a:active,#header #link ul li a:visited { color:#fff;}
 
-#nav {
-  height:32px; 
-  background: url(../images/nav_bg_tile.gif) top repeat-x; 
+#bar {
+  height:32px;
+  background: url(/images/nav_bg_tile.gif) top repeat-x; 
 }
 
-#menu {
+#navigation {
   float: left;
   margin: 0 0 0 6px;
   padding: 0;
@@ -45,7 +45,7 @@ img {
   width: 250px;
   background: transparent;
 }
-#menu ul {
+#menu {
   float: left;
   font-family: "Myriad Pro", Frutiger, "Lucida Grande", 
 "Lucida Sans", "Lucida Sans Unicode", Verdana, sans-serif;
@@ -55,26 +55,33 @@ img {
   padding: 0;
   list-style-type: none;
 }
-#menu ul li {
+#menu li {
   display: inline; /* :KLUDGE: Removes large gaps in IE/Win */
 }
-#menu ul li a {
+#menu li a {
   display: block;
   width: 200px;
   height: 39px;
   line-height: 39px;
   color: #000;
   text-decoration: none;
-  background: #94B8E9 url(../images/nav_bar_normal.gif) left bottom;
+  background: #94B8E9 url(/images/nav_bar_normal.gif) left bottom;
   text-indent: 50px;
   text-transform: none;
   white-space:nowrap;
 }
-#menu ul li a:hover, #menu ul li .selected a {
-  background: #94B8E9 url(../images/nav_bar_hover.gif) left bottom;
+#menu li a:hover, #menu ul li .selected a {
+  background: #94B8E9 url(/images/nav_bar_hover.gif) left bottom;
   color: #fff;
 }
-#menu ul .first a {
+
+#menu li.current_index a {
+  background: #94B8E9 url(/images/nav_bar_hover.gif) left bottom;
+  color: #fff;
+  margin: 0px 0px 0px 4px;
+}
+
+#menu .first a {
   height: 40px;
   line-height: 40px;
 }
@@ -86,6 +93,8 @@ img {
   border: 0;
   background: transparent;
 }
+
+/*
 #main div{
   width: 607px;
   margin: 0 0 0 15px;
@@ -94,4 +103,76 @@ img {
   border-top: 1px solid #aaa;
   border-bottom: 1px solid #aaa;
 }
+*/
+table	{border:0;border-collapse:collapse;}
+td {padding:4px;}
+th {font:bold 12px/17px Arial;text-align:left;padding:4px;border-bottom:1px solid #333;}
+tr.odd {background:#e4dcd9;}
+tr.highlight {background:#BDA9A2;}
+tr.selected {background:#4a1200;color:#fff;}
+td {text-align:left;}
+
+.tableone {width:700px; border-collapse:collapse; margin:0 auto;}
+.tabletwo {width:700px; border-collapse:collapse;}
+.th1 {width:20px;}
+.th2 {width:30px;}
+.th3 {width:100px;}
+.th4 {width:300px;}
+.th5 {width:100px;}
+.th6 {width:100px;}
+.th7 {width:50px;}
+
+.td1 {width:20px;}
+.td2 {width:30px;}
+.td3 {width:100px;}
+.td4 {width:300px;}
+.td5 {width:100px;}
+.td6 {width:100px;}
+.td7 {width:50px;}
+
+.tableone th {background:#697210; border:1px solid #fff; color:#fff;}
+.tableone tfoot {background:#697210; border:1px solid #fff; color:#fff;}
+.tableone caption {background:#fff; color:#697210; font-size:1.2em; margin:0 auto;}
+
+.tablediv { max-height:600px; overflow:auto;}
+
+#buttondiv1 input {
+  width:100px;
+  margin:10px 10px 10px 10px
+}
+
+#buttondiv2 {
+  background:#697210; border:1px solid #fff; color:#fff;
+  margin:10px 10px 10px 10px
+}
+
+#buttondiv3 input {
+  width:100px;
+  margin:10px 10px 10px 10px
+}
+
+#buttondiv4 {
+  background:#697210; border:1px solid #fff; color:#fff;
+  margin:10px 10px 10px 10px
+}
+
+#buttondiv5 input {
+  width:100px;
+  margin:10px 10px 10px 10px
+}
+
+
+
+#nav { height:32px; background:url(../images/nav_bg.gif) no-repeat;}
+#nav ul { list-style:none; overflow:hidden; zoom:1;}
+#nav ul li { float:left;}
+#nav ul li a:link,#nav ul li a:active,#nav ul li a:visited { display:block; color:#096CCA; width:120px; height:32px; line-height:32px; background:url(../images/nav_icon.gif) left center no-repeat; font-size:12px; font-weight:bold; padding-left:15px; margin-left:15px;}
+#nav ul li a:hover {display:block; width:120px; height:32px; line-height:32px; background:url(../images/nav_hover.gif) no-repeat;font-size:12px; font-weight:bold; padding-left:30px;text-decoration:none; color:#272727; margin-left:0px;}
+#nav ul li a.selected:link,#nav ul li a.selected:active,#nav ul li a.selected:visited,#nav ul li a.selected:hover {display:block; width:120px; height:32px; line-height:32px; background:url(../images/nav_hover.gif) no-repeat;font-size:12px; font-weight:bold; padding-left:30px;text-decoration:none; color:#272727; margin-left:0px;}
+#nav ul li.product { position:relative;}
+#nav ul li #subnav { background:#fff; border:#9f9f9f 1px solid; border-top:none; width:200px; height:180px; position:absolute; top:32px; left:0;filter:alpha(opacity=50);//IE -moz-opacity:0.5;//mozilla firefox -khtml-opacity: 0.5;//Safari (1.x) opacity: 0.5;//Mozilla browsers like Netscape Navigator; z-index:100;}
+#nav ul li ul#sub-nav { position:absolute; top:32px; left:1px;  z-index:1000; width:199px;}
+#nav ul li ul#sub-nav li { list-style:none; }
+#nav ul li ul#sub-nav li a:link,#nav ul li ul#sub-nav li a:active,#nav ul li ul#sub-nav li a:visited { display:block;width:200px; height:25px; line-height:25px; padding:0 15px 0 0; color:#333; font-size:12px; background:none; font-weight:normal; }
+#nav ul li ul#sub-nav li a:hover { display:block;width:200px; height:25px; line-height:25px; padding:0 15px 0 15px; color:#096CCA; font-size:12px; background:#fff; font-weight:normal; }
 

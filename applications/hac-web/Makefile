@@ -13,6 +13,7 @@ PAGES_DIR := pages
 IMAGES_DIR := images
 CSS_DIR := css
 JS_DIR := js
+CGI_DIR := cgi-bin
 INDEX_FILE := index.htm
 
 INSTALL_ROOT := ${ROOTFS_INSTALL}/usr/www
@@ -35,10 +36,11 @@ all:
 
 # install
 .PHONY: install
-install: install_index install_pages install_js install_css install_images
+install: install_index install_pages install_js install_css install_images install_cgi
 
 install_index:
-	@cp -fv $(INDEX_FILE) $(INSTALL_ROOT)
+	#@cp -fv $(INDEX_FILE) $(INSTALL_ROOT)
+	@cp -fv ./*.htm $(INSTALL_ROOT)
 
 install_pages:
 	@mkdir -pv $(INSTALL_ROOT)/$(PAGES_DIR)
@@ -56,6 +58,10 @@ install_css:
 install_images:
 	@mkdir -pv $(INSTALL_ROOT)/$(IMAGES_DIR)
 	@cp -rfv $(IMAGES_DIR)/* $(INSTALL_ROOT)/$(IMAGES_DIR)
+
+install_cgi:
+	#@mkdir -pv $(INSTALL_ROOT)/$(CGI_DIR)
+	#@cp -rfv $(CGI_DIR)/* $(INSTALL_ROOT)/$(CGI_DIR)
 
 # clean up
 .PHONY: clean distclean
