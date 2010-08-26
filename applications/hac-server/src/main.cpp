@@ -18,7 +18,7 @@ static bool firstUse(void)
 {
 	/* Checking Touch Screen */
 	bool needCal = false;
-    // the pointercal file  is specified in qte env
+	// the pointercal file  is specified in qte env
 	QString calFile = QString::fromLocal8Bit(qgetenv("POINTERCAL_FILE"));
 	if (calFile.isEmpty())
 		calFile = QLatin1String("/etc/pointercal");
@@ -37,34 +37,34 @@ static bool firstUse(void)
 		needCal=true;
 	}
 
-    if (needCal) {
-        {
-            // FIXME: We should implement a custom message box, QMessageBox is too heavy!
-            QMessageBox message;
-            message.setText("Please press once at each of the marks "
-                            "shown in the next screen."
-                            "This messagebox will timout after 10 seconds "
-                            "if you are unable to close it.");
-            QTimer::singleShot(10 * 1000, &message, SLOT(accept()));
-            message.exec();
-        }
+	if (needCal) {
+		{
+			// FIXME: We should implement a custom message box, QMessageBox is too heavy!
+			QMessageBox message;
+			message.setText("Please press once at each of the marks "
+							"shown in the next screen."
+							"This messagebox will timout after 10 seconds "
+							"if you are unable to close it.");
+			QTimer::singleShot(10 * 1000, &message, SLOT(accept()));
+			message.exec();
+		}
 
 		{
 			CalibrationDialog cal;
 			cal.exec();
 		}
-    }
+	}
 
 	QSettings config(CONFIG_FILE, QSettings::IniFormat);
-    config.beginGroup("Startup");
+	config.beginGroup("Startup");
 
-    if (!config.value("FirstUse", true).toBool())
-        return false; // This is not the first use startup.
+	if (!config.value("FirstUse", true).toBool())
+		return false; // This is not the first use startup.
 
-    qDebug() << "This is FirstUse!";
-    // FIXME: We should set this flag to false after some certain steps.
-    config.setValue("FirstUse", false);
-    config.sync();
+	qDebug() << "This is FirstUse!";
+	// FIXME: We should set this flag to false after some certain steps.
+	config.setValue("FirstUse", false);
+	config.sync();
 
 	return true;
 }
@@ -77,49 +77,32 @@ static bool firstUse(void)
  */
 int main(int argc, char *argv[])
 {
-    QApplication app(argc, argv, QApplication::GuiServer);
-    qDebug() << "main" << app.arguments();
+	QApplication app(argc, argv, QApplication::GuiServer);
+	qDebug() << "main" << app.arguments();
 
-    QCoreApplication::setOrganizationName(APP_ORG_NAME);
-    QCoreApplication::setOrganizationDomain(APP_ORG_DOMAIN);
-    QCoreApplication::setApplicationName(APP_NAME);
+	QCoreApplication::setOrganizationName(APP_ORG_NAME);
+	QCoreApplication::setOrganizationDomain(APP_ORG_DOMAIN);
+	QCoreApplication::setApplicationName(APP_NAME);
 
-    app.setQuitOnLastWindowClosed(false);
+	//QWSServer::setBackground(Qt::white);
+	QWSServer::setBackground(QPixmap(":/hacserver/images/splash.png"));
+	app.setQuitOnLastWindowClosed(false);
 
-    if (QWSServer::mouseHandler() == NULL) {
-        // maybe we should not just quiting here, a error/warning message would better
-        qFatal("No mouse handler installed");
+	if (QWSServer::mouseHandler() == NULL) {
+		// maybe we should not just quiting here, a error/warning message would better
+		qFatal("No mouse handler installed");
 		// we are very sorry that your touch screen is missing!
-    }
+	}
 
 	firstUse();
 
-    QWSServer::setBackground(QPixmap(":/hacserver/images/splash.png"));
+    //HacWaitBox wait;
+    //wait.setText(HacServer::tr("starting HAC, please wait for a while ..."));
+    //wait.show();
+    //wait.hide();
 
-#if 0
-	QSplashScreen *splash = new QSplashScreen(QPixmap(":/images/splash.png"));
-    splash->show();
-    app.processEvents();
+	HacServer srv;
+	srv.init();
 
-    // close splash screen;
-    splash->finish(w);
-    delete splash;
-    splash = NULL;
-#endif
-
-    HacServer srv;
-    srv.init();
-
-    HacWaitBox wb;
-	//wb.setCancelEnabled(true);
-	wb.setCancelText("Cancel");
-    wb.setText("Starting HAC server application,\nPlease wait for a moment ...");
-    qDebug() << "HacWaitBox";
-    //wb.setShowDelay(5000);
-    //wb.setHideDelay(5000);
-    //wb.setExpiry(5000);
-    wb.show();
-   // wb.hide();
-
-    return app.exec();
+	return app.exec();
 }

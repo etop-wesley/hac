@@ -1,5 +1,8 @@
 <RCC>
     <qresource prefix="/hacserver">
         <file>images/splash.png</file>
+        <file>images/button-home-normal-64x64.png</file>
+        <file>images/button2-home-normal-64x64.png</file>
+        <file>images/button-home-active-64x64.png</file>
     </qresource>
 </RCC>

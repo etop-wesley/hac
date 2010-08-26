@@ -9,8 +9,11 @@
  */
 
 #include <QObject>
+#include <QWSServer>
+#include <QWSClient>
+#include <QWSWindow>
 
-class QWSServer;
+class StatusBar;
 
 class HacServer : public QObject
 {
@@ -28,10 +31,16 @@ public Q_SLOTS:
 
 protected:
 
-private slots:
+private Q_SLOTS:
+    void windowEventHandler(QWSWindow *, QWSServer::WindowEvent);
+
+	void OnHomeClicked();
+	void OnBackClicked();
+	void OnClockClicked();
 
 private:
     QWSServer *server;
+	StatusBar *statusBar;
 };
 
 #endif // _HACSERVER_H_
