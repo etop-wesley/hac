@@ -1,0 +1,86 @@
+/*
+ * stylesheet for nagigation
+ */
+
+.treeview, .treeview ul { 
+	padding: 0;
+	margin: 0;
+	list-style: none;
+}
+
+.treeview ul {
+	background-color: white;
+	margin-top: 4px;
+}
+
+.treeview .hitarea {
+	background: url(/images/treeview-default.gif) -64px -25px no-repeat;
+	height: 16px;
+	width: 16px;
+	margin-left: -16px;
+	float: left;
+	cursor: pointer;
+}
+/* fix for IE6 */
+* html .hitarea {
+	display: inline;
+	float:none;
+}
+
+.treeview li { 
+	margin: 0;
+	padding: 3px 0pt 3px 16px;
+}
+
+.treeview a.selected {
+	background-color: #eee;
+}
+
+.treeview .hover { color: red; cursor: pointer; }
+
+.treeview li { background: url(/images/treeview-default-line.gif) 0 0 no-repeat; }
+.treeview li.collapsable, .treeview li.expandable { background-position: 0 -176px; }
+
+.treeview .expandable-hitarea { background-position: -80px -3px; }
+
+.treeview li.last { background-position: 0 -1766px }
+.treeview li.lastCollapsable, .treeview li.lastExpandable { background-image: url(/images/treeview-default.gif); }  
+.treeview li.lastCollapsable { background-position: 0 -111px }
+.treeview li.lastExpandable { background-position: -32px -67px }
+
+.treeview div.lastCollapsable-hitarea, .treeview div.lastExpandable-hitarea { background-position: 0; }
+
+
+#navigation {
+    float: left;
+    margin: 0 0 0 0px;
+    padding: 0;
+    border: 0;
+    border-right: 2px solid #aaa;
+    background: #5c9bd8;
+    background: transparent;
+}
+
+.menutree {
+    float: left;
+    font-family: "Myriad Pro", Frutiger, "Lucida Grande", 
+    "Lucida Sans", "Lucida Sans Unicode", Verdana, sans-serif;
+    font-size: 1.6em;
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+    background: transparent;
+}
+
+.menutree ul, .menutree span .menutree ul span{
+    background: transparent;
+    color:white;
+}
+/*
+.menutree li { padding: 3px 0 2px 16px; }
+
+*/
+.menutree span.parent, .menutree span.child { padding: 1px 0 1px 24px; width:200px; text-align:left center; display: block; }
+.menutree span.parent { background: url(/images/nav_bar_normal.gif) left center no-repeat; }
+.menutree li.expandable span.parent { background: url(/images/folder-closed.gif) left center no-repeat; }
+.menutree span.child { background: url(/images/file.gif) left center no-repeat; }

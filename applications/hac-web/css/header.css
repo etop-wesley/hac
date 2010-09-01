@@ -1,0 +1,16 @@
+/*
+ * stylesheet for header
+ */
+
+#banner { background: url(/images/header_bg.gif) top; height:98px; position:relative;}
+#banner #logo { background: url(/images/logo.gif); position:absolute; top:15px; left:35px; width:115px; height:82px; }
+#banner #info { position:absolute; top:28px; left:195px; background:url(/images/info.gif) no-repeat; width:287px; height:46px;}
+#banner #link { position:absolute; top:3px; right:20px;}
+#banner #link ul { list-style:none;}
+#banner #link ul li { float:left; background:url(/images/icon.jpg) left center no-repeat; padding:0 10px 0 14px;}
+#banner #link ul li a:link,#header #link ul li a:active,#header #link ul li a:visited { color:#fff;}
+
+#bar {
+height:32px;
+background: url(/images/nav_bg_tile.gif) top repeat-x; 
+}

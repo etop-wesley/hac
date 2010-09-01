@@ -1,0 +1,50 @@
+/*
+ * global stylesheet
+ */
+
+@charset "utf-8";
+
+* { margin:0; padding:0;}
+
+html {
+  min-width: 966px;
+  background: #f9f9f9;
+}
+
+body {
+  height: 100%;
+  font: 11px/1.5 Tahoma, Helvetica, Arial, sans-serif;
+  color:#6f6f6f; 
+  background: url(/images/bg.gif) repeat-x;
+}
+
+a:link,a:active,a:visited {
+  color: #096CCA;
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: underline;
+}
+img { 
+  border: none;
+}
+
+#header {
+  width: 100%;
+  height: 130px;
+}
+
+#navigation {
+  width: 250px;
+
+}
+
+#main {
+  
+}
+
+#footer {
+  width: 100%;
+  height: 10px;
+  position:;
+}
